@@ -14,13 +14,14 @@ include 'forms/conect.php';
         <div class="container">
             <div class="row">
                 <h1> Каталог </h1>
-                <?php include 'catalog/search.php'; // строка поиска ?>
+                <img src="<?= $_SESSION['user']['avatar'] ?>" width="10%" alt="">
             </div>
 
             <!-- <div class="row row-cols-3 pt-2"> -->
             <div class="row ">
                 <?php include 'catalog/out_all_card.php'; //вывод все карты настолок ?>
             </div>
+        </div>
 
     </main>
 </body>

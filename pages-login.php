@@ -62,9 +62,7 @@ session_start();
                                         <p class="text-center small">Введите номер телефона и пароль для входа</p>
                                     </div>
 
-                                    <!-- Форма Авторизации -->
-                                    <!-- <form action="forms/signin.php" method="post" class="row g-3 needs-validation"
-                                        novalidate> -->
+
                                     <form>
                                         <div class="col-12">
                                             <label class="form-label">Номер телефона</label>
