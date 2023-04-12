@@ -8,44 +8,46 @@
 
         <?php 
         if(!isset($_SESSION['user'])){ //если не зарегистрирован
-            echo '<li class="nav-item">
-            <a class="nav-link" href="catalog.php">
-                <i class="bi bi-grid"></i>
-                <span>Список задач</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-clipboard"></i>
-                <span>Мои задания</span>
-            </a>
-        </li>
+    //         echo '<li class="nav-item">
+    //         <a class="nav-link" href="catalog.php">
+    //             <i class="bi bi-grid"></i>
+    //             <span>Список задач</span>
+    //         </a>
+    //         </li>
+    //         <li class="nav-item">
+    //         <a class="nav-link collapsed" href="#">
+    //             <i class="bi bi-clipboard"></i>
+    //             <span>Мои задания</span>
+    //         </a>
+    //     </li>
 
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-person"></i>
-                <span>Профиль</span>
-            </a>
-        </li><!-- End Profile Page Nav -->
+    //     <li class="nav-item">
+    //         <a class="nav-link collapsed" href="#">
+    //             <i class="bi bi-person"></i>
+    //             <span>Профиль</span>
+    //         </a>
+    //     </li><!-- End Profile Page Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-envelope"></i>
-                <span>Техническая поддержка</span>
-            </a>
-        </li><!-- End Contact Page Nav -->
+    //     <li class="nav-item">
+    //         <a class="nav-link collapsed" href="#">
+    //             <i class="bi bi-envelope"></i>
+    //             <span>Техническая поддержка</span>
+    //         </a>
+    //     </li><!-- End Contact Page Nav -->
 
 
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.php">
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span>Войти/Зарегистр...</span>
-            </a>
-        </li>
-        <!-- End Login Page Nav -->
-    </ul>';
+    //     <li class="nav-item">
+    //         <a class="nav-link collapsed" href="pages-login.php">
+    //             <i class="bi bi-box-arrow-in-right"></i>
+    //             <span>Войти/Зарегистр...</span>
+    //         </a>
+    //     </li>
+    //     <!-- End Login Page Nav -->
+    // </ul>';
+
+    header('Location: pages-login.php');
     }
         
         if($_SESSION['user']['admin'] == 1){ //админ 
