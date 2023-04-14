@@ -14,7 +14,7 @@ include 'forms/conect.php';
         <div class="container">
             <div class="row">
                 <h1> Каталог </h1>
-                <img src="<?= $_SESSION['user']['avatar'] ?>" width="10%" alt="">
+
             </div>
 
             <!-- <div class="row row-cols-3 pt-2"> -->

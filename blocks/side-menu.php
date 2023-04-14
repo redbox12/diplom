@@ -56,60 +56,62 @@
                 <i class="bi bi-grid"></i>
                 <span>Список задач</span>
             </a>
-        </li>
+            </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="my_game.php">
-                <i class="bi bi-clipboard"></i>
-                <span>Мои задания</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="create_task.php">
-                <i class="bi bi-pencil-square"></i>
-                <span>Создать задание</span>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.php">
-                <i style="font-size: 25px;" class="bx bxs-church"></i>
-                <span>Мой храм</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.php">
-                <i class="bi bi-stickies"></i>
-                <span>Шаблоны</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.php">
-                <i class="bi bi-person"></i>
-                <span>Профиль</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.php">
-                <i class="bi bi-envelope"></i>
-                <span>Техническая поддержка</span>
-            </a>
-            </li><!-- End Contact Page Nav -->
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="my_game.php">
+                    <i class="bi bi-clipboard"></i>
+                    <span>Мои задания</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="create_task.php">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Создать задание</span>
+                </a>
+            </li>
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.php">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Выйти из аккаунта</span>
+                <a class="nav-link collapsed" href="users-profile.php">
+                    <i style="font-size: 25px;" class="bx bxs-church"></i>
+                    <span>Мой храм</span>
                 </a>
-            </li><!-- End Login Page Nav --> 
-            </ul>';
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="users-profile.php">
+                    <i class="bi bi-stickies"></i>
+                    <span>Шаблоны</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="users-profile.php">
+                    <i class="bi bi-person"></i>
+                    <span>Профиль</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="pages-contact.php">
+                    <i class="bi bi-envelope"></i>
+                    <span>Техническая поддержка</span>
+                </a>
+                </li><!-- End Contact Page Nav -->
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="pages-login.php">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span>Выйти из аккаунта</span>
+                    </a>
+                </li><!-- End Login Page Nav --> 
+                </ul>';
             
-        }  else if($_SESSION['user']['admin'] == 0 && isset($_SESSION['user'])){
+        }  
+        
+        else if($_SESSION['user']['admin'] == 0 && isset($_SESSION['user'])){
             echo '<li class="nav-item">
             <a class="nav-link collapsed" href="catalog.php">
                 <i class="bi bi-grid"></i>
@@ -137,7 +139,9 @@
             </a>
             </li>
         </ul>';
-    }
+    } 
+
+
     ?>
 
 
