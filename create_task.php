@@ -55,7 +55,7 @@ include 'forms/conect.php';
                                                     <label for="inputNanme4" class="form-label">Название
                                                         задания</label>
                                                     <input type="text" class="form-control" style="width: 98%;"
-                                                        name="name" id="1">
+                                                        name="name" id="1" placeholder="Помыть пол в храме">
                                                 </div>
                                             </div>
 
@@ -76,6 +76,15 @@ include 'forms/conect.php';
 
                                             <div class="row">
                                                 <div class="col-lg-6 col-sm-12 mt-3">
+                                                    <label for="inputAddress" class="form-label">Продолжительность
+                                                    </label>
+                                                    <input name="time_length" type="text" class="form-control"
+                                                        placeholder="20 мин">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-12 mt-3">
                                                     <label for="inputAddress" class="form-label">Одежда</label>
                                                     <select name="clothes" id="inputState" class="form-select clothes">
                                                         <option selected="">Выбрать...</option>
@@ -90,7 +99,7 @@ include 'forms/conect.php';
                                                     <label for="inputAddress" class="form-label">Кол-во
                                                         человек</label>
                                                     <input name="amout_people" id="validationDefault01" type="text"
-                                                        class="form-control">
+                                                        class="form-control" placeholder="3">
                                                 </div>
                                             </div>
 

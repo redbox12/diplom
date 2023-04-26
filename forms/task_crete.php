@@ -7,11 +7,12 @@ if($_POST['type_task'] === '1'){ //Необходимая помощь
     $name = $_POST['name'];
     $date = $_POST['date'];
     $time = $_POST['time'];
+    $time_length = $_POST['time_length'];
     $clothes = $_POST['clothes'];
     $amout_people = $_POST['amout_people'];
     $description = $_POST['description'];
     $type_task = $_POST['type_task'];
-    $admin = $_SESSION['user']['admin'];
+    $admin = $_SESSION['user']['id']; 
 
     $error_fields = [];
 
@@ -25,6 +26,10 @@ if($_POST['type_task'] === '1'){ //Необходимая помощь
     
     if($time === ''){
         $error_fields[]='time';
+    }
+
+    if($time_length === ''){
+        $error_fields[]='time_length';
     }
 
     if($clothes === 'Выбрать...'){
@@ -57,19 +62,19 @@ if($_POST['type_task'] === '1'){ //Необходимая помощь
         $response = [
             "status" => false,
             "type" => 2,
-            "message" => "Ошибка при загрузке фотографии",
+            "message" => "Ошибка при загрузке фотографии!",
         ];
         echo json_encode($response);
         die();
     }
     
-    mysqli_query($mysql,"INSERT INTO `need_tasks` (`id_task`, `id_type`, `name`, `date`, `time`, `clothes`, `people_amout`, `description`, `photo`) VALUES (NULL, '$type_task', '$name', '$date', '$time', '$clothes', '$amout_people', '$description', '$path')");
+    mysqli_query($mysql,"INSERT INTO `need_tasks` (`id_task`, `id_type`, `id_admin`, `name`, `date`, `time`, `time_length`,`clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name', '$date', '$time', '$time_length', '$clothes', '$amout_people', '0', '$description', '$path')");
     
     $mysql->close();
     
     $response = [
         "status" => true,
-        "message" => "Успешно создали задачу"
+        "message" => "Задание успешно создано!"
     ];
     echo json_encode($response);
 }
@@ -83,7 +88,7 @@ if($_POST['type_task'] === '2'){//Материальная помощь
     $summ_den_mtrl = $_POST['summ_den_mtrl'];
     $description_mtrl = $_POST['description_mtrl'];
     $type_task = $_POST['type_task'];
-    $admin = $_SESSION['user']['admin'];
+    $admin = $_SESSION['user']['id'];
 
     $error_fields = [];
 
@@ -140,7 +145,7 @@ if($_POST['type_task'] === '2'){//Материальная помощь
         die();
     }
     
-    mysqli_query($mysql,"INSERT INTO `material_task` (`id_task`, `id_type`, `admin`, `name`, `date_start`, `date_end`, `telephone`, `card_bank`, `summ_deneg`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name_mtrl', '$date_start_mtrl', '$date_end_mtrl', '$telephone_mtrl', '$card_mtrl', '$summ_den_mtrl', '$description_mtrl', '$path')");
+    mysqli_query($mysql,"INSERT INTO `material_task` (`id_task`, `id_type`, `id_admin`, `name`, `date_start`, `date_end`, `telephone`, `card_bank`, `summ_deneg`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name_mtrl', '$date_start_mtrl', '$date_end_mtrl', '$telephone_mtrl', '$card_mtrl', '$summ_den_mtrl', '$description_mtrl', '$path')");
     
     $mysql->close();
     $response = [
@@ -160,14 +165,6 @@ if($_POST['type_task'] === '3'){ //Особые поручения
     $type_task = $_POST['type_task'];
     $admin = $_SESSION['user']['id'];
 
-    // echo $name_special.'<br>';
-    // echo $date_special.'<br>';
-    // echo $time_special.'<br>';
-    // echo $clothes_special.'<br>';
-    // echo $amout_people_special.'<br>';
-    // echo $description_special.'<br>';
-    // echo $type_task.'<br>';
-    // echo $admin.'<br>';
     
 
     $error_fields = [];
@@ -221,7 +218,7 @@ if($_POST['type_task'] === '3'){ //Особые поручения
         die();
     }
     
-    mysqli_query($mysql,"INSERT INTO `special_tasks` (`id_task`, `id_type`, `name`, `admin_id`, `date`, `time`, `clothes`, `people_amout`, `description`, `photo`) VALUES (NULL, '$type_task ', '$name_special', '$admin', '$date_special', '$time_special', '$clothes_special', '$amout_people_special', '$description_special', '$path')");
+    mysqli_query($mysql,"INSERT INTO `special_tasks` (`id_task`, `id_type`, `name`, `id_admin`, `date`, `time`, `clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task ', '$name_special', '$admin', '$date_special', '$time_special', '$clothes_special', '$amout_people_special', '0', '$description_special', '$path')");
     
     $mysql->close();
     

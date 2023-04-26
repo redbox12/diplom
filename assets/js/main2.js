@@ -23,23 +23,6 @@ $('.login-btn').click(function(e){
     let password = $('input[name="password"]').val(); //val() - дает данные 
     
     
-    //console.log(tel) - вывод переменной
-
-    // $.ajax({
-    //     url: 'forms/signin.php',
-    //     type: 'POST',
-    //     dataType: 'text',
-    //     data: {
-    //         telephone: telephone,
-    //         password: password
-
-    //     },
-    //     success: function (data) {
-    //         //console.log(data);
-    //         $('.msg').text(data);
-    //     }
-    // });
-
     $.ajax({
         url: 'forms/signin.php',
         type: 'POST',

@@ -1,7 +1,10 @@
 <?php 
-  include 'blocks/header.php';
-  include 'forms/conect.php';
-  include 'blocks/side-menu.php'
+ob_start();
+ require_once 'blocks/header.php';
+ require_once 'forms/conect.php';
+ require_once 'blocks/side-menu.php'
+
+
 ?>
 
 <body>
@@ -29,6 +32,7 @@
                                       {
                                         unset($_SESSION['user']);
                                         header('Location: pages-login.php');
+                                        ob_end_flush();
                                       }
                                     ?>
                                 </form>
