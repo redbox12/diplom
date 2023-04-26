@@ -34,7 +34,6 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
     <script src="assets/js/jquery-3.6.4.min.js"></script>
-
     <script src="assets/js/main.js"></script>
 
 </head>

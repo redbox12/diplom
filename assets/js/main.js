@@ -260,8 +260,8 @@
         content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
       }
     ],
-    template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-    template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+    template_cdate_format: '[Date Created (CDATE): %d/%m/%Y : %H:%M:%S]',
+    template_mdate_format: '[Date Modified (MDATE): %d/%m/%Y : %H:%M:%S]',
     height: 600,
     image_caption: true,
     quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
@@ -297,6 +297,9 @@
   datatables.forEach(datatable => {
     new simpleDatatables.DataTable(datatable);
   })
+
+
+
 
   /**
    * Autoresize echart charts

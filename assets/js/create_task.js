@@ -6,6 +6,7 @@ $('.ubrat').click(function(){
     $(`select`).removeClass("border-danger");
     $('.msg').addClass("none");
     $('.msg2').addClass("none");
+    $('.msg3').addClass("none");
 });
 
 //форма для номера телефона
@@ -54,6 +55,7 @@ $('.need-task').click(function(e){
     let name = $('input[name="name"]').val();
     let date = $('input[name="date"]').val();
     let time = $('input[name="time"]').val();
+    let time_length = $('input[name="time_length"]').val();
     let clothes = $('select.clothes').children("option:selected").val();
     let amout_people = $('input[name="amout_people"]').val();
     let description = $('textarea[name="description"]').val();
@@ -63,6 +65,7 @@ $('.need-task').click(function(e){
     formData.append('name', name);
     formData.append('date', date);
     formData.append('time', time);
+    formData.append('time_length', time_length);
     formData.append('clothes', clothes);
     formData.append('amout_people', amout_people);
     formData.append('description', description);
