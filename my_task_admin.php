@@ -3,7 +3,6 @@ session_start();
   include 'blocks/header.php';
   include 'blocks/side-menu.php';
   include 'forms/conect.php';
-  //include 'forms/my_task_admin_back.php';
   $num_rows = [];
 
  $check_task_need = mysqli_query($mysql, "SELECT COUNT(*) FROM `need_tasks`");
@@ -80,8 +79,9 @@ session_start();
                                     <label>Дата: </label>
                                     <input type="date" class="form-control" name="date_task">
                                 </div>
-                                <div class="col-lg-3 col-sm-6 mb-2 mt-sm-2 mt-lg-4">
+                                <div class="col-lg-6 col-sm-6 mb-2 mt-sm-2 mt-lg-4 justify-content-md-center">
                                     <button class="btn btn-primary filter-task" type="submit">Применить</button>
+                                    <button type="reset" class="btn btn-secondary ubrat ms-1">Cбросить</button>
                                 </div>
 
                             </div>
@@ -97,94 +97,39 @@ session_start();
                 </div>
             </div>
 
+            <div class="modal fade" id="modal-delete-task" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Вы точно хотите завершить задание?</p>
+                            <button type="button" class="btn btn-success">Да</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Нет</button>
 
-
-            <div class="row" id="task-card">
-                <!-- <div class=" col-lg-5 col-md-12 mb-1 ms-lg-3 mt-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <h5 class="card-title fw-bold pt-3 ms-2 m-0">Помыть пол в храме</h5>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <span class="small text-muted ">Начало: 12.02</span>
-                                    <br><span class="text-muted small pt-2">Время: 12:00</span>
-                                    <br><span class="text-muted small pt-2">Продолжительность: 50 мин</span>
-                                </div>
-
-                                <div class="col-lg-4 mt-lg-2 ps-lg-0">
-                                    <i style="font-size: 32px;" class="bi bi-people-fill"></i>
-                                    <span style="font-size: 25px;"> 0/5 </span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col mt-3">
-                                    <button class="btn btn-danger btn-sm" type="submit">Завершить</button>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justiful-content-center">
 
                         </div>
                     </div>
-
-                </div> -->
-
-
-
-
-                <?php //get_tasks("all");?>
-
-                <!-- <div class="col-lg-5 col-md-12 mb-1 ms-lg-3 mt-2">
-                    <div class="card mb-1">
-                        <div class="card-body">
-                            <div class="row">
-                                <h5 class="card-title fw-bold pt-3 ms-2 m-0">Помыть пол в храме</h5>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <span class="small text-muted ">Начало: 12.02</span>
-                                    <br><span class="text-muted small pt-2">Время: 13:00 </span>
-                                    <br><span class="text-muted small pt-2">Продолжительность: 50 мин </span>
-                                </div>
-
-                                <div class="col-lg-4 mt-lg-2 ps-lg-0">
-                                    <i style="font-size: 32px;" class="bi bi-people-fill"></i>
-                                    <span style="font-size: 25px;"> 0/4 </span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <form class="">
-                                    <div class="col mt-2 ">
-                                        <input type="hidden" name="id_task" value="12">
-                                        <input type="hidden" name="id_task" value="2">
-                                        <button class="btn btn-danger btn-sm" type="submit">Завершить</button>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div> -->
-
-
-
-                <!-- <div class="row">
-                    <div class="col-lg-10 col-sm-10 d-flex justify-content-center mt-2">
-                        <button type="button" class="btn btn-primary ms-lg-5">Загрузить ещё </button>
-                    </div>
-                </div> -->
-
-
+                </div>
             </div>
 
 
+            <div class="row" id="task-card">
+                <!-- Вывод заданий -->
 
-
+            </div>
 
         </div>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/my_task.js"></script>
+        <script src="assets/js/finished_task.js"></script>
+
 
     </main>
 </body>

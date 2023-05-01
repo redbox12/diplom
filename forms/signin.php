@@ -56,7 +56,7 @@ $check_user = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `telepho
     // header('Location: ../pages-login.php' );
     $response = [
         "status" => false,
-        "message" => 'Неверный телефон или пароль'
+        "message" => 'Неверный телефон или пароль',
     ];
     echo json_encode($response);
  }

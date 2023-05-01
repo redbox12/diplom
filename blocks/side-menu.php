@@ -60,8 +60,15 @@ session_start();
     }
         
         if($_SESSION['user']['admin'] == 1){ //админ 
+               // <li class="nav-item">
+            //     <a class="nav-link collapsed" href="users-profile.php">
+            //         <i class="bi bi-stickies"></i>
+            //         <span>Шаблоны</span>
+            //     </a>
+            // </li>
+           
             echo '<li class="nav-item">
-            <a class="nav-link collapsed"  href="catalog.php">
+            <a class="nav-link collapsed"  href="pages-error-404.php">
                 <i class="bi bi-grid"></i>
                 <span>Список задач</span>
             </a>
@@ -82,18 +89,13 @@ session_start();
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.php">
+                <a class="nav-link collapsed" href="pages-error-404.php">
                     <i style="font-size: 25px;" class="bx bxs-church"></i>
                     <span>Мой храм</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.php">
-                    <i class="bi bi-stickies"></i>
-                    <span>Шаблоны</span>
-                </a>
-            </li>
+        
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="users-profile.php">
@@ -102,7 +104,7 @@ session_start();
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.php">
+                <a class="nav-link collapsed" href="pages-error-404.php">
                     <i class="bi bi-envelope"></i>
                     <span>Техническая поддержка</span>
                 </a>
