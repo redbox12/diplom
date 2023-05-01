@@ -78,7 +78,7 @@ include 'forms/conect.php';
                                                 <div class="col-lg-6 col-sm-12 mt-3">
                                                     <label for="inputAddress" class="form-label">Продолжительность
                                                     </label>
-                                                    <input name="time_length" type="text" class="form-control"
+                                                    <input name="time_length" class="form-control onlyNumbers"
                                                         placeholder="20 мин">
                                                 </div>
                                             </div>
@@ -116,9 +116,7 @@ include 'forms/conect.php';
                                                     <label>Фотография для задания</label>
                                                     <input name="avatar" type="file" class="form-control">
                                                 </div>
-                                                <!-- <p class="msg none small mb-0 text-warning"> -->
 
-                                                <!-- </p> -->
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -165,8 +163,8 @@ include 'forms/conect.php';
                                     <form class="task-mtrl-form">
                                         <div class="col-sm-12 col-lg-6">
                                             <label for="inputNanme4" class="form-label">Название</label>
-                                            <input type="text" class="form-control" style="width: 98%;"
-                                                name="name_mtrl">
+                                            <input type="text" class="form-control" style="width: 98%;" name="name_mtrl"
+                                                placeholder="Ремонт храма">
                                         </div>
                                         <div class="row d-flex justify-content-start mt-2">
                                             <div class="col-lg-3 col-sm-6">
@@ -262,11 +260,11 @@ include 'forms/conect.php';
                                                 <label class="form-label">Название
                                                     задания</label>
                                                 <input type="text" class="form-control" style="width: 98%;"
-                                                    name="name_special">
+                                                    name="name_special" placeholder="Помыть алтарь">
                                             </div>
                                         </div>
 
-                                        <div class="row d-flex justify-content-start mt-3">
+                                        <div class=" row d-flex justify-content-start mt-3">
                                             <div class="col-lg-3 col-sm-6">
                                                 <label for="inputDate" class="col-form-label">
                                                     Дата проведения</label>
@@ -278,6 +276,15 @@ include 'forms/conect.php';
                                                     проведения</label>
                                                 <input type="time" id="validationDefault01" class="form-control"
                                                     name="time_special">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-sm-12 mt-3">
+                                                <label for="inputAddress" class="form-label">Продолжительность
+                                                </label>
+                                                <input name="time_length_special" class="form-control onlyNumbers"
+                                                    placeholder="20 мин">
                                             </div>
                                         </div>
 
@@ -297,7 +304,8 @@ include 'forms/conect.php';
                                             <div class="col-lg-6 col-sm-12 mt-3">
                                                 <label for="inputAddress" class="form-label">Кол-во
                                                     человек</label>
-                                                <input name="amout_people_special" type="text" class="form-control">
+                                                <input name="amout_people_special" type="text" class="form-control"
+                                                    placeholder="2">
                                             </div>
                                         </div>
 
@@ -314,9 +322,7 @@ include 'forms/conect.php';
                                                 <label>Фотография для задания</label>
                                                 <input name="avatar3" type="file" class="form-control">
                                             </div>
-                                            <!-- <p class="msg3 none small mb-0 text-warning">
-                                                укцук
-                                            </p> -->
+
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6">

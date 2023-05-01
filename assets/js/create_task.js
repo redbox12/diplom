@@ -15,6 +15,14 @@ $("#yourTelephone").click(function(){
     $("#yourTelephone").mask("~ (999) 999-99-99");
 });
 
+//форма для набора только цифр
+$(".onlyNumbers").bind("change keyup input click", function() {
+    if (this.value.match(/[^0-9]/g)) {
+    this.value = this.value.replace(/[^0-9]/g, '');
+    }
+});
+
+
 
 //курсор в начало при заполнение банковской карты
 $.fn.setCursorPosition = function(pos) {
@@ -220,6 +228,7 @@ $('.task-special').click(function(e){
     let name_special = $('input[name="name_special"]').val();
     let date_special = $('input[name="date_special"]').val();
     let time_special = $('input[name="time_special"]').val();
+    let time_length = $('input[name="time_length_special"]').val();
     let clothes_special = $('select.clothes_special').children("option:selected").val();
     let amout_people_special = $('input[name="amout_people_special"]').val();
     let description_special = $('textarea[name="description_special"]').val();
@@ -229,6 +238,7 @@ $('.task-special').click(function(e){
     formData.append('name_special', name_special);
     formData.append('date_special', date_special);
     formData.append('time_special', time_special);
+    formData.append('time_length', time_length);
     formData.append('clothes_special', clothes_special);
     formData.append('amout_people_special', amout_people_special);
     formData.append('description_special', description_special);

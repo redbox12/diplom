@@ -1,6 +1,6 @@
 <?php 
   include 'blocks/header.php';
-//   if(!isset($_SESSION['user'])){ //если пользователь не зарегистрирован
+//  \\ if(!isset($_SESSION['user'])){ //если пользователь не зарегистрирован
     
 //   }
   include 'blocks/side-menu.php';

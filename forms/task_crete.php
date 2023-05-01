@@ -159,6 +159,7 @@ if($_POST['type_task'] === '3'){ //Особые поручения
     $name_special = $_POST['name_special'];
     $date_special = $_POST['date_special'];
     $time_special = $_POST['time_special'];
+    $time_length = $_POST['time_length'];
     $clothes_special = $_POST['clothes_special'];
     $amout_people_special = $_POST['amout_people_special'];
     $description_special = $_POST['description_special'];
@@ -180,6 +181,10 @@ if($_POST['type_task'] === '3'){ //Особые поручения
     
     if($time_special === ''){
         $error_fields[]='time_special';
+    }
+
+    if($time_special === ''){
+        $error_fields[]='time_length_special';
     }
 
     if($clothes_special === 'Выбрать...'){
@@ -218,7 +223,7 @@ if($_POST['type_task'] === '3'){ //Особые поручения
         die();
     }
     
-    mysqli_query($mysql,"INSERT INTO `special_tasks` (`id_task`, `id_type`, `name`, `id_admin`, `date`, `time`, `clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task ', '$name_special', '$admin', '$date_special', '$time_special', '$clothes_special', '$amout_people_special', '0', '$description_special', '$path')");
+    mysqli_query($mysql,"INSERT INTO `special_tasks` (`id_task`, `id_type`, `name`, `id_admin`, `date`, `time`, `time_length`, `clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task ', '$name_special', '$admin', '$date_special', '$time_special', '$time_length', '$clothes_special', '$amout_people_special', '0', '$description_special', '$path')");
     
     $mysql->close();
     
