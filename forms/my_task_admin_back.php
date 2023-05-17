@@ -9,9 +9,9 @@ $date_task = $_POST['date_task'];
     if($type_task == 0 and $date_task == "" ){ //вывод всех задач
         
         $result=[];
-        $result[] = $mysql->query('SELECT * FROM `need_tasks`'); //забираю данные из БД
-        $result[] = $mysql->query('SELECT * FROM `material_task`'); //забираю данные из БД
-        $result[] = $mysql->query('SELECT * FROM `special_tasks`');
+        $result[] = $mysql->query('SELECT * FROM `need_tasks` ORDER BY `id_task` DESC'); //забираю данные из БД
+        $result[] = $mysql->query('SELECT * FROM `material_task` ORDER BY `id_task` DESC'); //забираю данные из БД
+        $result[] = $mysql->query('SELECT * FROM `special_tasks` ORDER BY `id_task` DESC');
         $all_task = array(); //массив в котором лежат все задания
         $j = 0; //счетчик для завершения задания
         
@@ -38,6 +38,7 @@ $date_task = $_POST['date_task'];
                     $date_start = date("d.m", strtotime($row['date_start'])); //дата начала
                     $date_end = date("d.m", strtotime($row['date_end'])); //дата окончания
                     $summ_deneg = $row['summ_deneg'];  //сумма денег     
+                    $donate = $row['donate']; //пожертвование
                     
                     include 'templ/material_task_card.php';
                    
@@ -79,9 +80,9 @@ $date_task = $_POST['date_task'];
     if (!empty($date_task) and $type_task == 0) { //вывод задач с датой
         
         $result=[];
-        $result[] = mysqli_query($mysql, "SELECT * FROM `need_tasks` WHERE `date`='$date_task'"); //забираю данные из БД
-        $result[] = mysqli_query($mysql, "SELECT * FROM  `material_task` WHERE `date_start`<='$date_task' AND `date_end`>='$date_task'"); //забираю данные из БД
-        $result[] = mysqli_query($mysql, "SELECT * FROM `special_tasks` WHERE `date`='$date_task'");
+        $result[] = mysqli_query($mysql, "SELECT * FROM `need_tasks` WHERE `date`='$date_task' DESC"); //забираю данные из БД
+        $result[] = mysqli_query($mysql, "SELECT * FROM  `material_task` WHERE `date_start`<='$date_task' AND `date_end`>='$date_task' DESC"); //забираю данные из БД
+        $result[] = mysqli_query($mysql, "SELECT * FROM `special_tasks` WHERE `date`='$date_task' DESC");
         $all_task = array(); //массив в котором лежат все задания
         $flag_empty = 0; //если 0 значит нет задач на эту дату. В цикле делаем ++ если есть задача
         $j = 0; //счетчик для завершения задания
@@ -112,7 +113,9 @@ $date_task = $_POST['date_task'];
                         
                             $date_start = date("d.m", strtotime($row['date_start'])); //дата начала
                             $date_end = date("d.m", strtotime($row['date_end'])); //дата окончания
-                            $summ_deneg = $row['summ_deneg'];  //сумма денег             
+                            $summ_deneg = $row['summ_deneg'];  //сумма денег  
+                            $donate = $row['donate']; //пожертвование   
+                                
                             include 'templ/material_task_card.php';
                     }
 
@@ -168,7 +171,7 @@ $date_task = $_POST['date_task'];
     */ 
 
     if($type_task == 1 and $date_task == ""){ //вывод необходимой помощи без даты
-        $result =$result = mysqli_query($mysql, "SELECT * FROM `need_tasks`");
+        $result = mysqli_query($mysql, "SELECT * FROM `need_tasks` ORDER BY `id_task` DESC");
         
         if(mysqli_num_rows($result)>0){
             $j = 0; //счетчик для завершения задания
@@ -264,7 +267,7 @@ $date_task = $_POST['date_task'];
     */ 
     
     if($type_task == 2 and $date_task == ""){ //вывод матер. помощи без даты
-       $result = mysqli_query($mysql, "SELECT * FROM  `material_task`");
+       $result = mysqli_query($mysql, "SELECT * FROM  `material_task` ORDER BY `id_task` DESC");
         
         if(mysqli_num_rows($result)>0){
             $j = 0; //счетчик для завершения задания
@@ -277,9 +280,9 @@ $date_task = $_POST['date_task'];
                 
                 $date_start = date("d.m", strtotime($row['date_start'])); //дата начала
                 $date_end = date("d.m", strtotime($row['date_end'])); //дата окончания
-                $summ_deneg = $row['summ_deneg'];  //сумма денег     
-                
-
+                $summ_deneg = $row['summ_deneg'];  //сумма денег   
+                $donate = $row['donate']; //пожертвование  
+    
                 include 'templ/material_task_card.php';
             }
             $mysql->close();
@@ -324,7 +327,8 @@ $date_task = $_POST['date_task'];
                 
                 $date_start = date("d.m", strtotime($row['date_start'])); //дата начала
                 $date_end = date("d.m", strtotime($row['date_end'])); //дата окончания
-                $summ_deneg = $row['summ_deneg'];  //сумма денег     
+                $summ_deneg = $row['summ_deneg'];  //сумма денег  
+                $donate = $row['donate']; //пожертвование   
                 
                 include 'templ/material_task_card.php';
             }
@@ -359,7 +363,7 @@ $date_task = $_POST['date_task'];
 */
 
 if($type_task == 3 and $date_task == ""){
-    $result = mysqli_query($mysql, "SELECT * FROM `special_tasks`");
+    $result = mysqli_query($mysql, "SELECT * FROM `special_tasks` ORDER BY `id_task` DESC");
 
     if(mysqli_num_rows($result)>0){
         $j = 0; //счетчик для завершения задания
@@ -422,6 +426,7 @@ if(!empty($date_task) and $type_task == 3){ //вывод особ. поруче�
             $time_length = $row['time_length']; //продолжительность
             $people_amout = $row['people_amout']; //кол-во людей
             $people_feedback = $row['people_feedback']; //кол-во откликнувших. людей
+            
 
             include 'templ/special_task_card.php';
         }

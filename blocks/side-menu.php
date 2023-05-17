@@ -66,13 +66,14 @@ session_start();
             //         <span>Шаблоны</span>
             //     </a>
             // </li>
+            // <li class="nav-item">
+            // <a class="nav-link collapsed"  href="pages-error-404.php">
+            //     <i class="bi bi-grid"></i>
+            //     <span>Список задач</span>
+            // </a>
+            // </li>
            
-            echo '<li class="nav-item">
-            <a class="nav-link collapsed"  href="pages-error-404.php">
-                <i class="bi bi-grid"></i>
-                <span>Список задач</span>
-            </a>
-            </li>
+            echo '
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="my_task_admin.php">
@@ -103,15 +104,7 @@ session_start();
                     <span>Профиль</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-error-404.php">
-                    <i class="bi bi-envelope"></i>
-                    <span>Техническая поддержка</span>
-                </a>
-                </li><!-- End Contact Page Nav -->
-
-
-
+          
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="pages-login.php">
                         <i class="bi bi-box-arrow-in-right"></i>
@@ -124,7 +117,7 @@ session_start();
         
         else if($_SESSION['user']['admin'] == 0 && isset($_SESSION['user'])){
             echo '<li class="nav-item">
-            <a class="nav-link collapsed" href="catalog.php">
+            <a class="nav-link collapsed" href="tasks_catalog.php">
                 <i class="bi bi-grid"></i>
                 <span>Список задач</span>
             </a>
@@ -143,12 +136,7 @@ session_start();
                 <span>Профиль</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.php">
-                <i class="bi bi-envelope"></i>
-                <span>Техническая поддержка</span>
-            </a>
-            </li>
+    
         </ul>';
     } 
 
