@@ -283,10 +283,6 @@ $('.task-special').click(function(e){
             }
         
         }
-
-
-
     }); 
-
 });
 
