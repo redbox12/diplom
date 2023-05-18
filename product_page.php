@@ -41,6 +41,28 @@ $id_human = $_POST['id_human'];
                     </div>
                 </div>
             </div>
+            <!-- Модальное окно для завершения задачи -->
+            <div class="modal fade" id="modal-delete-task" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Вы точно хотите завершить задание?</p>
+                            <button type="button" class="btn btn-success">Да</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Нет</button>
+
+                        </div>
+                        <div class="modal-footer d-flex justiful-content-center">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <section class="section profile">
                 <div class="row">
@@ -69,6 +91,7 @@ $id_human = $_POST['id_human'];
 
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/tasks_catalog.js"></script>
+        <script src="assets/js/my_task.js"></script>
     </main>
 
 </body>

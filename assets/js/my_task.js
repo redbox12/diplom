@@ -2,8 +2,77 @@
 //сброс фильтров
 $('.ubrat').click(function(){
     $(".task_card").remove(); //удалем повтор
+    $.ajax({
+        url: 'forms/my_task_admin_back.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            type_task: 0,
+        },
+        success: function(data) {
+            if (data.status){  
+                if(data.type == 0){ //вывод всех задач без даты
+                    console.log(data);
+                    data.task.forEach(function(task){   
+                        $('#task-card').append('<div class="col-lg-5 col-md-12 mb-1 ms-lg-3 mt-2 task_card">'+ task + '</div>');
+                });
+
+                }
+             
+            } else{ //ошибки
+            
+            if (data.type == 0.1) { //если не имеется никакой задачи на дату
+                $('#task-card').append('<div class="col-lg-10 col-md-12 mb-1 ms-lg-3 mt-2 task_card">'+ 
+                '<div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>'+ data.message + 
+                    '</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button> </div> </div>');
+            }
+
+
+                console.log("Не пашет!");
+            }
+            
+        }
+    });
 });
 
+//вывод всех заданий 
+$(document).ready(function() { // Загрузка всех заданий
+ 
+    $.ajax({
+        url: 'forms/my_task_admin_back.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            type_task: 0,
+        },
+        success: function(data) {
+            if (data.status){  
+                if(data.type == 0){ //вывод всех задач без даты
+                    console.log(data);
+                    data.task.forEach(function(task){   
+                        $('#task-card').append('<div class="col-lg-5 col-md-12 mb-1 ms-lg-3 mt-2 task_card">'+ task + '</div>');
+                });
+
+                }
+             
+            } else{ //ошибки
+            
+            if (data.type == 0.1) { //если не имеется никакой задачи на дату
+                $('#task-card').append('<div class="col-lg-10 col-md-12 mb-1 ms-lg-3 mt-2 task_card">'+ 
+                '<div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>'+ data.message + 
+                    '</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button> </div> </div>');
+            }
+
+
+                console.log("Не пашет!");
+            }
+            
+        }
+    });
+
+    
+
+});
 
 
  $(".filter-task").on('click', function (e) { 
@@ -49,12 +118,12 @@ $('.ubrat').click(function(){
    
 });
 
-
+//Завершение задачи
 $(document).on( "click", ".delete  .finished-task", function(e) {
     e.preventDefault();
     let i = $('.delete .finished-task').index(this);
-    let id_task = $(`input[name="id_task${i}"]`).val();
-    let id_type = $(`input[name="id_type${i}"]`).val();
+    let id_task = $(`input[id="id_task${i}"]`).val();
+    let id_type = $(`input[id="id_type${i}"]`).val();
    
     console.log("------");
     console.log(i);

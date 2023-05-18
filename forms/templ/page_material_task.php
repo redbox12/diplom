@@ -1,5 +1,16 @@
 <?php 
+if($_SESSION['user']['admin'] == 1){
 
+    $button = '
+    <div class="delete">    
+        <input type="hidden" id="id_task'.$j.'" name="id_task" value="'.$id_task.'">
+        <input type="hidden" id="id_type'.$j.'"name="id_type" value="'.$id_type.'">
+        <button class="btn btn-danger btn-sm  finished-task">Завершить</button>
+    </div>';
+    
+} else {
+    $button = '';
+}
 $result = mysqli_query($mysql, "SELECT * FROM `material_task` WHERE `id_task`='$id_task'");
 $row = $result->fetch_assoc();
 $id_admin = $row['id_admin'];
@@ -41,6 +52,7 @@ echo '
     <div class="card">
         <div class="card-body">
             <img src="assets/img/donation.png" class="img-fluid mt-lg-2 p-1 pb-lg-4 p-md-4" alt="...">
+           
         </div>
     </div>
 </div>
@@ -54,6 +66,7 @@ echo '
                     '.$info_task['description'].'
                 </span>
             </div>
+           
         </div>
     </div>
 </div>
@@ -75,6 +88,7 @@ echo '
                 <dt class="col-lg-5 col-sm-3">Банковская карта:</dt>
                 <dd class="col-lg-6 col-sm-9">'.$info_task['card_bank'].'</dd>
             </dl>
+            '.$button.'
         </div>
     </div>
 </div>
@@ -114,6 +128,8 @@ echo '
                2. В СМС переводе укажите на что жертвуйте. Например: “На стройматериалы”</p>
 
             </div>
+
+            
         </div>
     </div>
 </div> 
@@ -129,7 +145,9 @@ echo '
                 <dt class="col-lg-5 col-sm-3">Телефон:</dt>
                 <dd class="col-lg-5 col-sm-9">'.$info_task['telephone_admin'].'</dd>
 
+
             </dl>
+            
         </div>
     </div>
 </div>    

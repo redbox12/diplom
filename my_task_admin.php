@@ -24,20 +24,20 @@ session_start();
         global $summ_task;
         
         echo '
-        <div class="col-lg-3 mt-3 p-0">
-        <span> Кол-во заданий: <span class="badge bg-primary  text-light">'.$summ_task.'</span></span> 
+        <div class="ms-lg-2 col-lg-3 mt-3 p-0 mb-3">
+        <p class="mx-auto"> <strong>Кол-во задач: </strong> &nbsp; <span class="badge bg-primary  text-light">'.$summ_task.'</span></p> 
         </div>
         
-        <div class="col-lg-3 mt-3 p-0">
-        <span class="me-3"> Необходимые задания: <span class="badge bg-primary  text-light">'.$num_rows[0].'</span> </span> 
+        <div class="col-lg-2 mt-lg-3 p-0 mx-auto">
+        <p class="mx-auto"> <strong>Работ:</strong> &nbsp; <span class="badge bg-primary  text-light">'.$num_rows[0].'</span> </p> 
         </div>
         
-        <div class="col-lg-3 mt-3 p-0">
-        <span class="me-3"> Матреальные задания: <span class="badge bg-primary text-light">'.$num_rows[1].'</span></span> 
+        <div class="col-lg-2 mt-lg-3 p-0 mx-auto">
+        <p class="mx-auto"><strong> Сбор средств: </strong>  &nbsp;<span class="badge bg-primary text-light">'.$num_rows[1].'</span></p> 
         </div>
 
-        <div class="col-lg-3 mt-3 p-0">
-        <span class="me-3"> Особые поручение: <span class="badge bg-primary  text-light">'.$num_rows[2].'</span></span>     
+        <div class="col-lg-4 mt-lg-3 p-0 mx-auto">
+        <p class="mx-auto text-start"> <strong>Особые поручения:</strong>  &nbsp;<span class="badge bg-primary  text-light">'.$num_rows[2].'</span></p>     
         </div>';
 
     }   
@@ -51,7 +51,7 @@ session_start();
     <main id="main" class="main">
         <div class="container ">
             <div class="row my-2">
-                <h1> Мои задания </h1>
+                <h1> Мои задачи </h1>
             </div>
 
 
@@ -59,19 +59,19 @@ session_start();
             <div class="row mt-3">
                 <div class="card ms-lg-3 col-lg-10 col-md-12">
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mt-2">
                             <!-- Вывод кол-во заданий -->
                             <?php  get_static();?>
                         </div>
                         <form>
-                            <div class="row mt-4">
+                            <div class="row mt-2">
                                 <div class="col-lg-3 col-sm-4 mb-2">
                                     <label>Тип задания: </label>
                                     <select class="form-select type-task" aria-label="Пример выбора по умолчанию">
                                         <option value="0">Все</option>
-                                        <option value="1">Необходимые</option>
-                                        <option value="2">Материальные</option>
-                                        <option value="3">Особые поручение</option>
+                                        <option value="1">Работы</option>
+                                        <option value="2">Сбор средств</option>
+                                        <option value="3">Особые поручения</option>
                                     </select>
 
                                 </div>

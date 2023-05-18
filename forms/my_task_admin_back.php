@@ -80,9 +80,9 @@ $date_task = $_POST['date_task'];
     if (!empty($date_task) and $type_task == 0) { //вывод задач с датой
         
         $result=[];
-        $result[] = mysqli_query($mysql, "SELECT * FROM `need_tasks` WHERE `date`='$date_task' DESC"); //забираю данные из БД
-        $result[] = mysqli_query($mysql, "SELECT * FROM  `material_task` WHERE `date_start`<='$date_task' AND `date_end`>='$date_task' DESC"); //забираю данные из БД
-        $result[] = mysqli_query($mysql, "SELECT * FROM `special_tasks` WHERE `date`='$date_task' DESC");
+        $result[] = mysqli_query($mysql, "SELECT * FROM `need_tasks` WHERE `date`='$date_task'"); //забираю данные из БД
+        $result[] = mysqli_query($mysql, "SELECT * FROM  `material_task` WHERE `date_start`<='$date_task' AND `date_end`>='$date_task'"); //забираю данные из БД
+        $result[] = mysqli_query($mysql, "SELECT * FROM `special_tasks` WHERE `date`='$date_task'");
         $all_task = array(); //массив в котором лежат все задания
         $flag_empty = 0; //если 0 значит нет задач на эту дату. В цикле делаем ++ если есть задача
         $j = 0; //счетчик для завершения задания

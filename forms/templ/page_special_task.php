@@ -1,16 +1,16 @@
 <?php
- 
-    $result = mysqli_query($mysql, "SELECT * FROM `special_tasks` WHERE `id_task`='$id_task'" ); 
-    $row = $result->fetch_assoc();
-    $id_admin = $row['id_admin'];
 
-    //забираем данные из БД организатора для вывода инф-ии о нём
-    $result_admin = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `id`='$id_admin'");
-    $row_admin = $result_admin->fetch_assoc();
+$result = mysqli_query($mysql, "SELECT * FROM `special_tasks` WHERE `id_task`='$id_task'");
+$row = $result->fetch_assoc();
+$id_admin = $row['id_admin'];
+
+//забираем данные из БД организатора для вывода инф-ии о нём
+$result_admin = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `id`='$id_admin'");
+$row_admin = $result_admin->fetch_assoc();
 
 
 
-    $info_task = [
+$info_task = [
     "name" => $row['name'],
     "date" => date("d.m", strtotime($row['date'])),
     "time" => $row['time'],
@@ -22,42 +22,52 @@
     "photo" => $row['photo'],
     "name_admin" => $row_admin['name'],
     "telephone_admin" => $row_admin['telephone']
-    ];
+];
 
-    //вывод Одежды
-    if($info_task['clothes'] == 1){
+//вывод Одежды
+if ($info_task['clothes'] == 1) {
     $info_task['clothes'] = "Обычная";
-    } else {
+} else {
     $info_task['clothes'] = "Рабочая";
-    }
+}
+if ($_SESSION['user']['admin'] == 1) {
 
-    // Проверка на взятие задачи
-    $result_button = mysqli_query($mysql, "SELECT * FROM `players` WHERE `id_human`='$id_human' AND `id_task`='$id_task'
-    AND
-    `id_type`='$type_task'");
-    $j = 0; //для навешивания события
-    if(mysqli_num_rows($result_button)>0){ //если записан на задание
     $button = '
+        <div class="delete">    
+            <input type="hidden" id="id_task' . $j . '" name="id_task" value="' . $id_task . '">
+            <input type="hidden" id="id_type' . $j . '"name="id_type" value="' . $id_type . '">
+            <button class="btn btn-danger  finished-task">Завершить</button>
+        </div>';
+        
+} 
+
+else {
+    $result_button = mysqli_query($mysql, "SELECT * FROM `players` WHERE `id_human`='$id_human' AND `id_task`='$id_task' AND `id_type`='$type_task'");
+    $j = 0; //для навешивания события
+    if (mysqli_num_rows($result_button) > 0) { //если записан на задание
+        $button = '
     <div class="otkaz">
-        <input type="hidden" name="id_task_m'.$j.'" value="'.$id_task.'">
-        <input type="hidden" name="id_type_m'.$j.'" value="'.$type_task.'">
-        <input type="hidden" name="id_human_m'.$j.'" value="'.$_SESSION['user']['id'].'">
+        <input type="hidden" name="id_task_m' . $j . '" value="' . $id_task . '">
+        <input type="hidden" name="id_type_m' . $j . '" value="' . $type_task . '">
+        <input type="hidden" name="id_human_m' . $j . '" value="' . $_SESSION['user']['id'] . '">
         <button class="btn btn-danger otkaz-task">Отказаться</button>
     </div>';
-
     } else {
 
-    $button = '<input type="hidden" id="id_task'.$j.'" name="id_task" value="'.$id_task.'">
-    <input type="hidden" id="id_type'.$j.'" name="id_type" value="'.$type_task.'">
-    <input type="hidden" id="id_human'.$j.'" name="id_human" value="'.$_SESSION['user']['id'].'">
+        $button = '<input type="hidden" id="id_task' . $j . '" name="id_task" value="' . $id_task . '">
+    <input type="hidden" id="id_type' . $j . '" name="id_type" value="' . $type_task . '">
+    <input type="hidden" id="id_human' . $j . '" name="id_human" value="' . $_SESSION['user']['id'] . '">
     <button class="btn btn-success  response-task">Откликнуться</button>';
     }
+}
+// Проверка на взятие задачи
 
 
-    //вывод задания
-    echo '
+
+//вывод задания
+echo '
     <div class="row ">
-        <h1 class=""> <strong>'.$info_task['name'].' </strong></h1>
+        <h1 class=""> <strong>' . $info_task['name'] . ' </strong></h1>
     </div>
 
     <div class="row mt-3">
@@ -75,7 +85,7 @@
                     <h4 class=" text-center mt-3"><strong>Описание</strong></h4>
                     <div class=" ms-2">
                         <span class="">
-                            '.$info_task['description'].'
+                            ' . $info_task['description'] . '
                         </span>
                     </div>
                 </div>
@@ -93,37 +103,37 @@
 
                             <tr>
                                 <th scope="row">Дата:</th>
-                                <td>' .$info_task['date'].'</td>
+                                <td>' . $info_task['date'] . '</td>
 
 
                             </tr>
 
                             <tr>
                                 <th scope="row">Время:</th>
-                                <td>'.$info_task['time'].'</td>
+                                <td>' . $info_task['time'] . '</td>
 
 
                             </tr>
 
                             <tr>
                                 <th scope="row">Люди:</th>
-                                <td>'.$info_task['people_feedback'].'/'.$info_task['people_amout'].'</td>
+                                <td>' . $info_task['people_feedback'] . '/' . $info_task['people_amout'] . '</td>
 
                             <tr>
                                 <th scope="row">Одежда:</th>
-                                <td>'.$info_task['clothes'].'</td>
+                                <td>' . $info_task['clothes'] . '</td>
                             </tr>
 
                             </tr>
                             <tr>
                                 <th scope="row text-truncate">Продолжительность:</th>
-                                <td>' .$info_task['time_length'].' мин</td>
+                                <td>' . $info_task['time_length'] . ' мин</td>
 
 
                             </tr>
                         </tbody>
                     </table>
-                    '.$button.'
+                    ' . $button . '
                 </div>
             </div>
         </div>
@@ -136,11 +146,11 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Имя:</th>
-                                <td>' .$info_task['name_admin'].'</td>
+                                <td>' . $info_task['name_admin'] . '</td>
                             </tr>
                             <tr>
                                 <th scope="row">Телефон:</th>
-                                <td>'.$info_task['telephone_admin'].'</td>
+                                <td>' . $info_task['telephone_admin'] . '</td>
                             </tr>
                         </tbody>
                     </table>
@@ -149,6 +159,3 @@
             </div>
         </div>
     </div>';
-
-
-    ?>
