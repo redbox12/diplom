@@ -8,29 +8,29 @@ include 'forms/conect.php';
         <section class="section">
             <?php include 'blocks/side-menu.php'; //боковое меню ?>
             <div class="container">
-                <h1> Создать задание </h1>
+                <h1> Создать задачу </h1>
                 <div class=" row mt-5 ">
-                    <div class="col-lg-8 col-md-12 card">
-                        <div class="card-body mt-5">
+                    <div class="col-lg-8 col-md-12 col-sm-12 card">
+                        <div class="card-body mt-4">
 
                             <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
 
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                        aria-selected="true" tabindex="-1" name="need-task">Необходимая помощь</button>
+                                        aria-selected="true" tabindex="-1" name="need-task">Работы</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-profile" type="button" role="tab"
-                                        aria-controls="pills-profile" aria-selected="false" tabindex="-1">Материальная
-                                        помощь</button>
+                                        aria-controls="pills-profile" aria-selected="false" tabindex="-1">Сбор средств
+                                    </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-contact" type="button" role="tab"
                                         aria-controls="pills-contact" aria-selected="false">Особое
-                                        поручение</button>
+                                        поручения</button>
                                 </li>
 
                             </ul>
@@ -51,22 +51,22 @@ include 'forms/conect.php';
                                         <!-- Форма необходимой помощи -->
                                         <form class="task-need-form">
                                             <div class="row">
-                                                <div class="col-sm-12 col-lg-6">
+                                                <div class="col-sm-12 col-lg-8">
                                                     <label for="inputNanme4" class="form-label">Название
-                                                        задания</label>
-                                                    <input type="text" class="form-control" style="width: 98%;"
-                                                        name="name" id="1" placeholder="Помыть пол в храме">
+                                                        задачи</label>
+                                                    <input type="text" class="form-control" name="name" id="1"
+                                                        placeholder="Помыть пол в храме">
                                                 </div>
                                             </div>
 
                                             <div class="row d-flex justify-content-start mt-3">
-                                                <div class="col-lg-3 col-sm-6">
+                                                <div class="col-lg-4 col-sm-6">
                                                     <label for="inputDate" class="col-form-label">
                                                         Дата проведения</label>
                                                     <input type="date" class="form-control" name="date">
 
                                                 </div>
-                                                <div class="col-lg-3 col-sm-6">
+                                                <div class="col-lg-4 col-sm-6">
                                                     <label for="inputTime" class="col-form-label">Время
                                                         проведения</label>
                                                     <input type="time" id="validationDefault01" class="form-control"
@@ -75,7 +75,7 @@ include 'forms/conect.php';
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-lg-6 col-sm-12 mt-3">
+                                                <div class="col-lg-8 col-sm-12 mt-3">
                                                     <label for="inputAddress" class="form-label">Продолжительность
                                                     </label>
                                                     <input name="time_length" class="form-control onlyNumbers"
@@ -84,7 +84,7 @@ include 'forms/conect.php';
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-lg-6 col-sm-12 mt-3">
+                                                <div class="col-lg-8 col-sm-12 mt-3">
                                                     <label for="inputAddress" class="form-label">Одежда</label>
                                                     <select name="clothes" id="inputState" class="form-select clothes">
                                                         <option selected="">Выбрать...</option>
@@ -95,7 +95,7 @@ include 'forms/conect.php';
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-lg-6 col-sm-12 mt-3">
+                                                <div class="col-lg-8 col-sm-12 mt-3">
                                                     <label for="inputAddress" class="form-label">Кол-во
                                                         человек</label>
                                                     <input name="amout_people" id="validationDefault01" type="text"
@@ -104,7 +104,7 @@ include 'forms/conect.php';
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-lg-6 col-sm-12 mt-3">
+                                                <div class="col-lg-8 col-sm-12 mt-3">
                                                     <label for="floatingTextarea">Описание</label>
                                                     <textarea name="description" id="validationDefault01"
                                                         class="form-control" style="height: 100px;"></textarea>
@@ -112,14 +112,14 @@ include 'forms/conect.php';
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-lg-6 col-sm-12 mt-3">
+                                                <div class="col-lg-8 col-sm-12 mt-3">
                                                     <label>Фотография для задания</label>
                                                     <input name="avatar" type="file" class="form-control">
                                                 </div>
 
                                             </div>
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-8 mt-2">
                                                     <div class="msg none alert alert-warning alert-dismissible fade show mt-2 "
                                                         role="alert">
                                                         A simple warning alert—check it out!
@@ -128,8 +128,7 @@ include 'forms/conect.php';
 
                                             </div>
 
-                                            <div
-                                                class="d-flex justify-content-lg-start justify-content-sm-center mt-3 ">
+                                            <div class="d-flex justify-content-lg-start justify-content-center mt-3 ">
                                                 <button type="submit"
                                                     class="btn btn-primary me-2 need-task">Создать</button>
                                                 <button type="reset" class="btn btn-secondary ubrat">Убрать</button>
@@ -161,19 +160,19 @@ include 'forms/conect.php';
                                         шаблон</button> -->
 
                                     <form class="task-mtrl-form">
-                                        <div class="col-sm-12 col-lg-6">
+                                        <div class="col-sm-12 col-lg-8">
                                             <label for="inputNanme4" class="form-label">Название</label>
                                             <input type="text" class="form-control" style="width: 98%;" name="name_mtrl"
                                                 placeholder="Ремонт храма">
                                         </div>
                                         <div class="row d-flex justify-content-start mt-2">
-                                            <div class="col-lg-3 col-sm-6">
+                                            <div class="col-lg-4 col-sm-6">
                                                 <label for="inputDate" class=" col-form-label">
                                                     Дата начало</label>
                                                 <input type="date" class="form-control" name="date_start_mtrl">
                                             </div>
 
-                                            <div class="col-lg-3 col-sm-6 ">
+                                            <div class="col-lg-4 col-sm-6 ">
                                                 <label for="inputDate" class="col-form-label">
                                                     Дата окончания</label>
 
@@ -183,7 +182,7 @@ include 'forms/conect.php';
 
                                         </div>
                                         <div class="row mt-4">
-                                            <div class="col-lg-6 col-sm-12">
+                                            <div class="col-lg-8 col-sm-12">
                                                 <label class="form-label">Номер телефона для
                                                     перевода</label>
                                                 <input type="tel" name="telephone_mtrl" class="form-control"
@@ -191,7 +190,7 @@ include 'forms/conect.php';
                                             </div>
                                         </div>
                                         <div class="row mt-4">
-                                            <div class="col-lg-6 col-sm-12">
+                                            <div class="col-lg-8 col-sm-12">
                                                 <label class="form-label">Номер карты для перевода</label>
 
                                                 <input type="text" class="mask-card-number form-control"
@@ -199,14 +198,14 @@ include 'forms/conect.php';
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                            <div class="col-lg-6 col-sm-12">
+                                            <div class="col-lg-8 col-sm-12">
                                                 <label class="form-label">Сумма денег</label>
                                                 <input name="summ_den_mtrl" type="text" class="form-control"
                                                     placeholder="2000 р." value="">
                                             </div>
                                         </div>
                                         <div class=" row">
-                                            <div class="col-sm-12 col-lg-6 mt-3">
+                                            <div class="col-sm-12 col-lg-8 mt-3">
                                                 <label for="floatingTextarea">Описание</label>
                                                 <textarea name="description_mtrl" class=" form-control"
                                                     style="height: 100px;"></textarea>
@@ -214,7 +213,7 @@ include 'forms/conect.php';
 
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-12 col-lg-6 mt-3">
+                                            <div class="col-sm-12 col-lg-8 mt-3">
                                                 <label>Фотография для задания</label>
                                                 <input name="avatar2" type="file" class="form-control">
                                             </div>
@@ -222,7 +221,7 @@ include 'forms/conect.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <div class="msg2 none alert alert-warning alert-dismissible fade show mt-2 "
                                                     role="alert">
                                                     Валидация полей
@@ -230,7 +229,7 @@ include 'forms/conect.php';
                                             </div>
 
                                         </div>
-                                        <div class="d-flex justify-content-start mt-3">
+                                        <div class="d-flex justify-content-lg-start justify-content-center mt-3">
                                             <button type="submit"
                                                 class="btn btn-primary me-2 mtrl-task">Создать</button>
                                             <button type="reset" class="btn btn-secondary ubrat">Убрать</button>
@@ -256,22 +255,22 @@ include 'forms/conect.php';
 
                                     <form class="task-special-form">
                                         <div class="row">
-                                            <div class="col-sm-12 col-lg-6">
+                                            <div class="col-sm-12 col-lg-8">
                                                 <label class="form-label">Название
-                                                    задания</label>
-                                                <input type="text" class="form-control" style="width: 98%;"
-                                                    name="name_special" placeholder="Помыть алтарь">
+                                                    задачи</label>
+                                                <input type="text" class="form-control" name="name_special"
+                                                    placeholder="Помыть алтарь">
                                             </div>
                                         </div>
 
                                         <div class=" row d-flex justify-content-start mt-3">
-                                            <div class="col-lg-3 col-sm-6">
+                                            <div class="col-lg-4 col-sm-6">
                                                 <label for="inputDate" class="col-form-label">
                                                     Дата проведения</label>
                                                 <input type="date" class="form-control" name="date_special">
 
                                             </div>
-                                            <div class="col-lg-3 col-sm-6">
+                                            <div class="col-lg-4 col-sm-6">
                                                 <label for="inputTime" class="col-form-label">Время
                                                     проведения</label>
                                                 <input type="time" id="validationDefault01" class="form-control"
@@ -280,7 +279,7 @@ include 'forms/conect.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-lg-6 col-sm-12 mt-3">
+                                            <div class="col-lg-8 col-sm-12 mt-3">
                                                 <label for="inputAddress" class="form-label">Продолжительность
                                                 </label>
                                                 <input name="time_length_special" class="form-control onlyNumbers"
@@ -289,7 +288,7 @@ include 'forms/conect.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-lg-6 col-sm-12 mt-3">
+                                            <div class="col-lg-8 col-sm-12 mt-3">
                                                 <label for="inputAddress" class="form-label">Одежда</label>
                                                 <select name="clothes_special" id="inputState"
                                                     class="form-select clothes_special">
@@ -301,7 +300,7 @@ include 'forms/conect.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-lg-6 col-sm-12 mt-3">
+                                            <div class="col-lg-8 col-sm-12 mt-3">
                                                 <label for="inputAddress" class="form-label">Кол-во
                                                     человек</label>
                                                 <input name="amout_people_special" type="text" class="form-control"
@@ -310,7 +309,7 @@ include 'forms/conect.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-lg-6 col-sm-12 mt-3">
+                                            <div class="col-lg-8 col-sm-12 mt-3">
                                                 <label for="floatingTextarea">Описание</label>
                                                 <textarea name="description_special" class="form-control"
                                                     style="height: 100px;"></textarea>
@@ -318,14 +317,14 @@ include 'forms/conect.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-lg-6 col-sm-12 mt-3">
+                                            <div class="col-lg-8 col-sm-12 mt-3">
                                                 <label>Фотография для задания</label>
                                                 <input name="avatar3" type="file" class="form-control">
                                             </div>
 
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <div class="none msg3 alert alert-warning alert-dismissible fade show mt-2 "
                                                     role="alert">
                                                     A simple warning alert—check it out!

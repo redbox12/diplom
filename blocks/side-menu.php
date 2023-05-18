@@ -78,13 +78,13 @@ session_start();
             <li class="nav-item">
                 <a class="nav-link collapsed" href="my_task_admin.php">
                     <i class="bi bi-clipboard"></i>
-                    <span>Мои задания</span>
+                    <span>Мои задачи</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="create_task.php">
                     <i class="bi bi-pencil-square"></i>
-                    <span>Создать задание</span>
+                    <span>Создать задачу</span>
                 </a>
             </li>
 

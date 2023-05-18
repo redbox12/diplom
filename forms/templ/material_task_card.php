@@ -1,6 +1,14 @@
 <?php 
 if($_SESSION['user']['admin'] == 1){
-    
+    $prots = 0.0;
+    $donate = str_replace([' ', '(', ')', '-'], '', $donate);
+    $summ_deneg = str_replace([' ', '(', ')', '-'], '', $summ_deneg);
+    $prots = (float) $donate*100/$summ_deneg;
+    if($prots < 1 and $prots != 0){
+        $prots = 2;
+    }
+    $summ_deneg = number_format($summ_deneg, 0, '.', ' '); //вывод с пробелами
+    $donate = number_format($donate, 0, '.', ' '); 
     $all_task[] = '
     <div class="card mb-1 delete">
         <div class="card-body">
@@ -17,22 +25,35 @@ if($_SESSION['user']['admin'] == 1){
             
             <div class="row">
                 <div class="col-lg-10 col-sm-12">
-                    <span class="small text-muted ">Дата сбора: '.$date_start.' - '.$date_end.' </span>
-                    <br><span class="text-muted small pt-2">Необходимо денег:  '.$summ_deneg.' р</span>
+                    <span class="small text-muted ">Дата сбора:&nbsp'.$date_start.' - '.$date_end.'  </span>
+                    <br><span class="text-muted small pt-2">Необходимая сумма:&nbsp'.$summ_deneg.' руб.</span>
+                    <br><span class="text-muted small pt-2">Собраная сумма:&nbsp'.$donate.' руб.</span>
+                </div>
+            </div>
+
+            <div class="row">   
+                <div class="col-lg-12 col-sm-12 mx-auto mt-1">
+            <div class="progress">
+                <div class="progress-bar text-center" role="progressbar" style="background: #fff9c8; width: '.$prots.'%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
                 </div>
             </div>
             
             <div class="row mt-2">
                 <div class="col mt-2 ">
-                    <input type="hidden" name="id_task'.$j.'" value="'.$id_task.'">
-                    <input type="hidden" name="id_type'.$j.'" value="'.$id_type.'">
-                    <button class="btn btn-danger btn-sm finished-task">Завершить</button>
-                    <button class="btn btn-primary btn-sm ms-1">Детали</button>
+                <form action="product_page.php" method="POST">
+                        <input type="hidden" id="id_task'.$j.'" name="id_task" value="'.$id_task.'">
+                        <input type="hidden" id="id_type'.$j.'"name="id_type" value="'.$id_type.'">
+                        <button class="btn btn-danger btn-sm finished-task">Завершить</button>
+                        <button class="btn btn-primary btn-sm ms-1" type="submit" >Подробнее...</button>
+                    </form>  
                 </div>
             </div>
    
         </div>
     </div>';
+    
+    $j++;
    
 
 }else{
