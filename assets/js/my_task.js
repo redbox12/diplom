@@ -206,6 +206,13 @@ $(document).on( "click", ".delete  .finished-task", function(e) {
     $(`input[name="amout_people"]`).val('');
     $(`textarea[name="description"]`).val('');
 
+    $(`input[name="name_mtrl"]`).val('');
+    $(`input[name="date_start"]`).val('');
+    $(`input[name="date_end"]`).val('');
+    $(`input[name="card_mtrl"]`).val('');
+    $(`input[name="summ_den_mtrl"]`).val('');
+    $(`textarea[name="description_mtrl"]`).val('');
+
     // $(`input`).val('');
     // $(`select[name="clothes"]`).val('Выбрать...') ;
     // $(`textarea`).val('');
@@ -218,8 +225,11 @@ $(document).on( "click", ".delete  .edit_task", function(e) {
     let id_task = $(`input[id="id_task${i}"]`).val();
     let id_type = $(`input[id="id_type${i}"]`).val();
     
+    $(`input`).removeClass("border-danger");
+    $(`textarea`).removeClass("border-danger");
+    $(`select`).removeClass("border-danger");
+    $('.msg').addClass('none')
 
-  
    
     console.log("------");
     console.log(i);
@@ -344,39 +354,189 @@ $(document).on( "click", ".delete  .edit_task", function(e) {
                 },
                 success: function(data) {
                     if(data.status){
-                        $(`input[name="name"]`).val(data.name);
-                        $(`input[name="date"]`).val(data.date);
-                        $(`input[name="time"]`).val(data.time);
-                        $(`input[name="time_length"]`).val(data.time_length);
-                        $(`select[name="clothes"] option[value=${data.clothes}]`).prop('selected', true);
-                        $(`input[name="amout_people"]`).val(data.people_amout);
-                        $(`textarea[name="description"]`).val(data.description);
+                        $(`input[name="name_mtrl"]`).val(data.name_mtrl);
+                        $(`input[name="date_start"]`).val(data.date_start);
+                        $(`input[name="date_end"]`).val(data.date_end);
+                        $(`input[name="card_mtrl"]`).val(data.card_bank);
+                        $(`input[name="summ_den_mtrl"]`).val(data.summ_deneg);
+                        $(`textarea[name="description_mtrl"]`).val(data.description_mtrl);
                        }
                 }
         
             });
+
+            $('.mtrl-task-edit').on( "click", function(e) {
+                e.preventDefault();
+                let mtrl_edit_task = true;
+                console.log('Нажал на кнопку');
+    
+                $(`input`).removeClass("border-danger");
+                $(`textarea`).removeClass("border-danger");
+
+            
+                
+            
+                let name_mtrl = $('input[name="name_mtrl"]').val();
+                let date_start = $('input[name="date_start"]').val();
+                let date_end = $('input[name="date_end"]').val();
+                let card_mtrl = $('input[name="card_mtrl"]').val();
+                let summ_den_mtrl = $('input[name="summ_den_mtrl"]').val();
+                let description_mtrl = $('textarea[name="description_mtrl"]').val();
+                
+            
+                let formData = new FormData();
+                formData.append('id_task', id_task);
+                formData.append('mtrl_edit_task', mtrl_edit_task);
+                formData.append('name_mtrl', name_mtrl);
+                formData.append('date_start', date_start);
+                formData.append('date_end', date_end);
+                formData.append('card_mtrl', card_mtrl);
+                formData.append('summ_den_mtrl', summ_den_mtrl);
+                formData.append('description_mtrl', description_mtrl);
+               
+                
+            
+            
+                $.ajax({
+                    url: 'forms/edit_and_delete_task_admin.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    cashe: false,
+                    data: formData,
+                    success: function(data) {
+                        if (data.status){
+                            console.log('Все ок');
+                            $('.msg').removeClass('none').text(data.message); 
+                            setTimeout("location.reload();", 900);
+                        
+                           
+                        } else{
+                            console.log('не работает');
+                            if(data.type === 1){
+                                data.fields.forEach(function(field){
+                                     $(`input[name="${field}"]`).addClass("border-danger");
+                                     $(`textarea[name="${field}"]`).addClass("border-danger");
+                                     $(`select[name="${field}"]`).addClass("border-danger");
+                                });  
+            
+            
+                            }
+                            $('.msg').removeClass('none').text(data.message); //
+                        }
+                    }
+            
+            
+            
+                }); 
+
+               
+            });
     }
 
     if(id_type == 3){
+        let get_special_task = true; //запрос на данные по "Работы"
+        $('#modal-edit-task-3').modal("toggle"); //вывод модального окна для измененения задачи
         
+        // Загрузка кружок
+
+        $.ajax({
+                url: 'forms/edit_and_delete_task_admin.php',
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    type_task: id_type,
+                    id_task: id_task,
+                    get_special_task: get_special_task    
+                },
+                success: function(data) {
+                    if(data.status){
+                        $(`input[name="name_s"]`).val(data.name);
+                        $(`input[name="date_s"]`).val(data.date);
+                        $(`input[name="time_s"]`).val(data.time);
+                        $(`input[name="time_length_s"]`).val(data.time_length);
+                        $(`select[name="clothes_s"] option[value=${data.clothes}]`).prop('selected', true);
+                        $(`input[name="amout_people_s"]`).val(data.people_amout);
+                        $(`textarea[name="description_s"]`).val(data.description);
+                       }
+                }
+        
+            });
+
+            $('.special-task-edit').on( "click", function(e) {
+                e.preventDefault();
+                let special_edit_task = true;
+    
+                $(`input`).removeClass("border-danger");
+                $(`textarea`).removeClass("border-danger");
+                $(`select`).removeClass("border-danger");
+            
+                
+            
+                let name = $('input[name="name_s"]').val();
+                let date = $('input[name="date_s"]').val();
+                let time = $('input[name="time_s"]').val();
+                let time_length = $('input[name="time_length_s"]').val();
+                let clothes = $('select.clothes_s').children("option:selected").val();
+                let amout_people = $('input[name="amout_people_s"]').val();
+                let description = $('textarea[name="description_s"]').val();
+                
+            
+                let formData = new FormData();
+                formData.append('id_task', id_task);
+                formData.append('name', name);
+                formData.append('date', date);
+                formData.append('time', time);
+                formData.append('time_length', time_length);
+                formData.append('clothes', clothes);
+                formData.append('amout_people', amout_people);
+                formData.append('description', description);
+               
+                formData.append('special_edit_task', special_edit_task);
+            
+            
+                $.ajax({
+                    url: 'forms/edit_and_delete_task_admin.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    cashe: false,
+                    data: formData,
+                    success: function(data) {
+                        if (data.status){
+                            console.log('Все ок');
+                            $('.msg').removeClass('none').text(data.message); 
+                            setTimeout("location.reload();", 900);
+                            // $('.task-need-form').addClass('none'); 
+                            // $('.task-need-win').removeClass('none'); //сообщение задание успешно создано
+                          
+                         
+                        } else{
+                            console.log('не работает');
+                            if(data.type === 1){
+                                data.fields.forEach(function(field){
+                                     $(`input[name="${field}"]`).addClass("border-danger");
+                                     $(`textarea[name="${field}"]`).addClass("border-danger");
+                                     $(`select[name="${field}"]`).addClass("border-danger");
+                                });  
+            
+            
+                            }
+                            $('.msg').removeClass('none').text(data.message); //
+                        }
+                    }
+            
+            
+            
+                }); 
+
+               
+            });
     }
 
-    //$('#modal-delete-task').modal("toggle");
 
-    // $.ajax({
-    //     url: 'forms/my_task_admin_back.php',
-    //     type: "POST",
-    //     dataType: 'json',
-    //     data: {
-    //         type_task: id_task,
-    //         id_task: id_task,
-    //         edit_task: edit_task    
-    //     },
-    //     success: function(data) {
-
-    //     }
-
-    // });
     
   });
 
