@@ -93,6 +93,7 @@ function my_task() {
 
 
 
+
 $(document).on( "click", ".info  i", function(e) {
     e.preventDefault();
     $('.btn-tooltip').tooltip();

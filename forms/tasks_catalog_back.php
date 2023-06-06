@@ -28,7 +28,7 @@
                     $time_length = $row2['time_length']; //продолжительность
                     $people_amout = $row2['people_amout']; //кол-во людей
                     $people_feedback = $row2['people_feedback']; //кол-во откликнувших. людей
-                    $change_task2 = 2;
+                    $change_task2 = $row2['edit'];
                     
                     //if($row2['change_task'] == 1){
                         if($change_task2 == 1){ //если произошли изменение в задание
@@ -98,9 +98,9 @@
                     $time_length = $row3['time_length']; //продолжительность
                     $people_amout = $row3['people_amout']; //кол-во людей
                     $people_feedback = $row3['people_feedback']; //кол-во откликнувших. людей
-                    //$change_task2 = 1;
+                    $change_task3 = $row3['edit'];;
 
-                    if($row2['change_task'] == 1){ //если произошли изменение в задание
+                    if($change_task3 == 1){ //если произошли изменение в задание
                     //if($change_task2 === 1){ //если произошли изменение в задание
                         $change_task = ' <i id="btn-tooltip" style="font-size: 25px; color:red;"
                         class="bi bi-exclamation-circle-fill btn p-0" data-bs-toggle="tooltip"
