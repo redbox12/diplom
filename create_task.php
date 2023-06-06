@@ -1,6 +1,13 @@
 <?php
+ob_start(); 
 include 'blocks/header.php'; //подключение шапки
 include 'forms/conect.php';
+
+if($_SESSION['user']['normal'] == 1 or $_SESSION['user']['super_normal'] == 1 ){
+    header('Location: tasks_catalog.php');
+    ob_end_flush();
+}
+
 ?>
 
 <body>
@@ -41,12 +48,6 @@ include 'forms/conect.php';
 
                                     <!-- для скрытия использую id="task-need" -->
                                     <div class="card-body task-need">
-
-                                        <!-- Vertical Form -->
-                                        <!-- <button type="button" class="btn btn-success mt-2 mb-3 pe-4">
-                                            <i class="bi bi-stickies-fill mt-5"></i>
-                                            Использовать
-                                            шаблон</button> -->
 
                                         <!-- Форма необходимой помощи -->
                                         <form class="task-need-form">
@@ -111,13 +112,13 @@ include 'forms/conect.php';
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col-lg-8 col-sm-12 mt-3">
                                                     <label>Фотография для задания</label>
                                                     <input name="avatar" type="file" class="form-control">
                                                 </div>
 
-                                            </div>
+                                            </div> -->
                                             <div class="row">
                                                 <div class="col-lg-8 mt-2">
                                                     <div class="msg none alert alert-warning alert-dismissible fade show mt-2 "
@@ -154,10 +155,6 @@ include 'forms/conect.php';
                                 <!-- Форма материальной помощи -->
                                 <div class=" tab-pane fade" id="pills-profile" role="tabpanel"
                                     aria-labelledby="profile-tab">
-                                    <!-- <button type="button" class="btn btn-success mt-2 mb-3 pe-4">
-                                        <i class="bi bi-stickies-fill mt-5"></i>
-                                        Использовать
-                                        шаблон</button> -->
 
                                     <form class="task-mtrl-form">
                                         <div class="col-sm-12 col-lg-8">
@@ -212,13 +209,13 @@ include 'forms/conect.php';
                                             </div>
 
                                         </div>
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-sm-12 col-lg-8 mt-3">
                                                 <label>Фотография для задания</label>
                                                 <input name="avatar2" type="file" class="form-control">
                                             </div>
 
-                                        </div>
+                                        </div> -->
 
                                         <div class="row">
                                             <div class="col-lg-8">
@@ -316,13 +313,13 @@ include 'forms/conect.php';
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-lg-8 col-sm-12 mt-3">
                                                 <label>Фотография для задания</label>
                                                 <input name="avatar3" type="file" class="form-control">
                                             </div>
 
-                                        </div>
+                                        </div> -->
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="none msg3 alert alert-warning alert-dismissible fade show mt-2 "

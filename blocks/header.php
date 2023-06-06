@@ -1,5 +1,12 @@
 <?php 
   session_start();
+
+  if($_SESSION['user']['admin'] == 1){
+    $link_all_tasks = "my_task_admin.php";
+  }
+  else {
+    $link_all_tasks = "tasks_catalog.php";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +48,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="catalog.php" class="logo d-flex align-items-center">
+        <a href=<?php  echo $link_all_tasks; ?> class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" class="logo-game" alt="">
             <span class="d-none d-lg-block mx-2"> Прихожанин</span>
         </a>
@@ -61,7 +68,7 @@
                 <!-- <a class="nav-link nav-profile d-flex align-items-center pe-0" href="users-profile.php" data-bs-toggle="dropdown">
             <img src="assets/img/profile-dog.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['user']['name'];?></span>
-          </a> -->
+        </a> -->
                 <?php 
                   if(isset($_SESSION['user'])){
                     echo '<a class="nav-link nav-profile d-flex align-items-center pe-0" href="users-profile.php">

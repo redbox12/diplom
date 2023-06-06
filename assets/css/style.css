@@ -1355,13 +1355,18 @@ h6 {
     margin-top: 12px;
   }
 
-  .card_page_task{
+  .hram{
+    width: 300px;
+    height: 300px;
+  }
+
+  /* .card_page_task{
     height: 150px;
   }
 
   .description{
     height: 200px;
-  }
+  } */
 
 
  

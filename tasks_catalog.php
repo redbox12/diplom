@@ -1,8 +1,15 @@
 <?php
+ob_start(); 
 include 'forms/conect.php';
 include 'blocks/header.php'; //подключение шапки
 include 'blocks/side-menu.php'; //боковое меню
 
+if($_SESSION['user']['admin'] == 1){
+    header('Location: my_task_admin.php');
+    ob_end_flush();
+  }
+
+  
 ?>
 
 <body>

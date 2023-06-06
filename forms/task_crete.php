@@ -57,18 +57,18 @@ if($_POST['type_task'] === '1'){ //Необходимая помощь
         die();
     }
 
-    $path = 'assets/img/task' . time() . $_FILES['avatar']['name'];
-    if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
-        $response = [
-            "status" => false,
-            "type" => 2,
-            "message" => "Ошибка при загрузке фотографии!",
-        ];
-        echo json_encode($response);
-        die();
-    }
+    // $path = 'assets/img/task' . time() . $_FILES['avatar']['name'];
+    // if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
+    //     $response = [
+    //         "status" => false,
+    //         "type" => 2,
+    //         "message" => "Ошибка при загрузке фотографии!",
+    //     ];
+    //     echo json_encode($response);
+    //     die();
+    // }
     
-    mysqli_query($mysql,"INSERT INTO `need_tasks` (`id_task`, `id_type`, `id_admin`, `name`, `date`, `time`, `time_length`,`clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name', '$date', '$time', '$time_length', '$clothes', '$amout_people', '0', '$description', '$path')");
+    mysqli_query($mysql,"INSERT INTO `need_tasks` (`id_task`, `id_type`, `id_admin`, `name`, `date`, `time`, `time_length`,`clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name', '$date', '$time', '$time_length', '$clothes', '$amout_people', '0', '$description', '0')");
     
     $mysql->close();
     
@@ -134,18 +134,18 @@ if($_POST['type_task'] === '2'){//Материальная помощь
         die();
     }
 
-    $path = 'assets/img/task' . time() . $_FILES['avatar2']['name'];
-    if (!move_uploaded_file($_FILES['avatar2']['tmp_name'], '../' . $path)) {
-        $response = [
-            "status" => false,
-            "type" => 2,
-            "message" => "Ошибка при загрузке фотографии",
-        ];
-        echo json_encode($response);
-        die();
-    }
+    // $path = 'assets/img/task' . time() . $_FILES['avatar2']['name'];
+    // if (!move_uploaded_file($_FILES['avatar2']['tmp_name'], '../' . $path)) {
+    //     $response = [
+    //         "status" => false,
+    //         "type" => 2,
+    //         "message" => "Ошибка при загрузке фотографии",
+    //     ];
+    //     echo json_encode($response);
+    //     die();
+    // }
     
-    mysqli_query($mysql,"INSERT INTO `material_task` (`id_task`, `id_type`, `id_admin`, `name`, `date_start`, `date_end`, `telephone`, `card_bank`, `summ_deneg`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name_mtrl', '$date_start_mtrl', '$date_end_mtrl', '$telephone_mtrl', '$card_mtrl', '$summ_den_mtrl', '$description_mtrl', '$path')");
+    mysqli_query($mysql,"INSERT INTO `material_task` (`id_task`, `id_type`, `id_admin`, `name`, `date_start`, `date_end`, `telephone`, `card_bank`, `summ_deneg`, `description`, `photo`) VALUES (NULL, '$type_task', '$admin', '$name_mtrl', '$date_start_mtrl', '$date_end_mtrl', '$telephone_mtrl', '$card_mtrl', '$summ_den_mtrl', '$description_mtrl', '0')");
     
     $mysql->close();
     $response = [
@@ -212,18 +212,18 @@ if($_POST['type_task'] === '3'){ //Особые поручения
         die();
     }
 
-    $path = 'assets/img/task' . time() . $_FILES['avatar3']['name'];
-    if (!move_uploaded_file($_FILES['avatar3']['tmp_name'], '../' . $path)) {
-        $response = [
-            "status" => false,
-            "type" => 2,
-            "message" => "Ошибка при загрузке фотографии"
-        ];
-        echo json_encode($response);
-        die();
-    }
+    // $path = 'assets/img/task' . time() . $_FILES['avatar3']['name'];
+    // if (!move_uploaded_file($_FILES['avatar3']['tmp_name'], '../' . $path)) {
+    //     $response = [
+    //         "status" => false,
+    //         "type" => 2,
+    //         "message" => "Ошибка при загрузке фотографии"
+    //     ];
+    //     echo json_encode($response);
+    //     die();
+    // }
     
-    mysqli_query($mysql,"INSERT INTO `special_tasks` (`id_task`, `id_type`, `name`, `id_admin`, `date`, `time`, `time_length`, `clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task ', '$name_special', '$admin', '$date_special', '$time_special', '$time_length', '$clothes_special', '$amout_people_special', '0', '$description_special', '$path')");
+    mysqli_query($mysql,"INSERT INTO `special_tasks` (`id_task`, `id_type`, `name`, `id_admin`, `date`, `time`, `time_length`, `clothes`, `people_amout`, `people_feedback`, `description`, `photo`) VALUES (NULL, '$type_task ', '$name_special', '$admin', '$date_special', '$time_special', '$time_length', '$clothes_special', '$amout_people_special', '0', '$description_special', '0')");
     
     $mysql->close();
     

@@ -33,7 +33,10 @@ if($_SESSION['user']['admin'] == 1){
                         <input type="hidden" id="id_type'.$j.'" name="id_type" value="'.$id_type.'">
                         <button class="btn btn-danger btn-sm finished-task">Завершить</button>
                         <button class="btn btn-primary btn-sm ms-1" type="submit" >Подробнее...</button>
+                        <button class="btn btn-sm p-0 edit_task"><i class="bx bx-edit mt-1" style="font-size: 32px;"></i></button>
+                        
                     </form>  
+                   
                  </div>
              
              </div>

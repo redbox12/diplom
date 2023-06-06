@@ -44,11 +44,11 @@ $.fn.setCursorPosition = function(pos) {
 
 
 // Получение картинки
-let avatar = false;
-$('input[name="avatar"]').change(function(e){
-    avatar = e.target.files[0];
-    console.log(avatar);
-});
+// let avatar = false;
+// $('input[name="avatar"]').change(function(e){
+//     avatar = e.target.files[0];
+//     console.log(avatar);
+// });
 
 // Необходимые задания
 $('.need-task').click(function(e){
@@ -78,7 +78,7 @@ $('.need-task').click(function(e){
     formData.append('amout_people', amout_people);
     formData.append('description', description);
     formData.append('type_task', type_task);
-    formData.append('avatar', avatar);
+    // formData.append('avatar', avatar);
 
 
     $.ajax({
@@ -125,11 +125,11 @@ $('.need-task').click(function(e){
 });
 
 //фото для материальной помощи
-let avatar2 = false;
-$('input[name="avatar2"]').change(function(e){
-    avatar2 = e.target.files[0];
-    console.log(avatar2);
-});
+// let avatar2 = false;
+// $('input[name="avatar2"]').change(function(e){
+//     avatar2 = e.target.files[0];
+//     console.log(avatar2);
+// });
 
 //Материальные задания
 $('.task-mtrl-form').on('submit', function(e){
@@ -158,7 +158,7 @@ $('.task-mtrl-form').on('submit', function(e){
     formData.append('summ_den_mtrl', summ_den_mtrl);
     formData.append('description_mtrl', description_mtrl);
     formData.append('type_task', type_task);
-    formData.append('avatar2', avatar2);
+    // formData.append('avatar2', avatar2);
 
    
 
@@ -207,11 +207,11 @@ $('.task-mtrl-form').on('submit', function(e){
 
 });
 
-let avatar3 = false;
-$('input[name="avatar3"]').change(function(e){
-    avatar3 = e.target.files[0];
-    console.log(avatar3);
-});
+// let avatar3 = false;
+// $('input[name="avatar3"]').change(function(e){
+//     avatar3 = e.target.files[0];
+//     console.log(avatar3);
+// });
 
 
 //особое поручение
@@ -243,7 +243,7 @@ $('.task-special').click(function(e){
     formData.append('amout_people_special', amout_people_special);
     formData.append('description_special', description_special);
     formData.append('type_task', type_task);
-    formData.append('avatar3', avatar3);
+    // formData.append('avatar3', avatar3);
 
 
     $.ajax({
