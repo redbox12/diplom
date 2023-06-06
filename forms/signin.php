@@ -30,7 +30,20 @@ if(!empty($error_fields)){
 }
 $password = md5($password);
 
+//проверка на заблокированного пользоватяля 
+$check_user_ban = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `telephone`='$telephone' AND `password`='$password' AND `limite_task`='-1'");
+if(mysqli_num_rows($check_user_ban)>0){
+    $response = [
+        "status" => false,
+        "message" => '🔴 Вы заблокированы из-за подозрительного поведения',
+    ];
+    echo json_encode($response);
+    die();
+}
+
 $check_user = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `telephone`='$telephone' AND `password`='$password'");
+
+
 
  if(mysqli_num_rows($check_user)>0){
 
@@ -61,5 +74,7 @@ $check_user = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `telepho
     ];
     echo json_encode($response);
  }
+
+
 
 ?>

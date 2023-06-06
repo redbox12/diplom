@@ -76,7 +76,7 @@ echo '
 <div class="col-lg-5 col-md-6 col-sm-12">
     <div class="card response">
         <div class="card-body">
-            <h4 class=" text-center mt-3"><strong>Оcобености</strong></h4>
+            <h4 class=" text-center mt-3"><strong>Оcобенности</strong></h4>
 
             <dl class="row">
                 <dt class="col-lg-5 col-sm-3">Дата начало:</dt>

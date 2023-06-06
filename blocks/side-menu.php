@@ -90,7 +90,7 @@ session_start();
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-error-404.php">
+                <a class="nav-link collapsed" href="my_hram.php">
                     <i style="font-size: 25px;" class="bx bxs-church"></i>
                     <span>Мой храм</span>
                 </a>
@@ -126,7 +126,7 @@ session_start();
         <li class="nav-item">
             <a class="nav-link collapsed" href="my_game.php">
                 <i class="bi bi-clipboard"></i>
-                <span>Мои задания</span>
+                <span>Мои задачи</span>
             </a>
         </li>
        
@@ -136,12 +136,23 @@ session_start();
                 <span>Профиль</span>
             </a>
         </li>
+
+        <li class="nav-item">
+                    <a class="nav-link collapsed" href="pages-login.php">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span>Выйти из аккаунта</span>
+                    </a>
+                </li><!-- End Login Page Nav --> 
     
         </ul>';
-    } 
+
+    
+   
+    
+        }
 
 
-    ?>
+        ?>
 
 
 </aside><!-- End Sidebar-->

@@ -36,7 +36,7 @@ $('.login-btn').click(function(e){
             //console.log(data);
             if (data.status){
                 //console.log(data);
-                document.location.href='/diplom/users-profile.php';
+                document.location.href='/diplom/tasks_catalog.php';
             } else{
 
                 if(data.type == 1){
