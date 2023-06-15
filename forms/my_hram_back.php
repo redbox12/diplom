@@ -148,7 +148,7 @@ if(isset($setting_people)){ //изменение данных
         mysqli_query($mysql, "UPDATE `personal_date` SET `normal` = '0', `super_normal` = '0', `admin` = '1', `limite_task` = '$limite_task' WHERE `id` = '$id_human'");
     }
 
-    if($level_access == 4){ // Изменение на стандартного пользователя
+    if($level_access == 4){ // Изменение на заблокированного пользователя
         
         $check_task = mysqli_query($mysql, "SELECT * FROM `players` WHERE `id_human`='$id_human'");
         if (mysqli_num_rows($check_task) > 0) {

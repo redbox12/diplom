@@ -618,7 +618,7 @@ $(document).on( "click", ".donate .minus_donate", function(e) {
 
     });
 
-
 });
+
 
 
