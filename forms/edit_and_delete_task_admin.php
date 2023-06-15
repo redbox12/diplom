@@ -103,7 +103,7 @@ if($need_edit_task) { //отдаю значения "Работ"
     
     $response = [
         "status" => true,
-        "message" => "Задание успешно изменено!"
+        "message" => "Изменения вступили в силу!"
     ];
     echo json_encode($response);
 
@@ -192,7 +192,7 @@ if($mtrl_edit_task) { //отдаю значения "Работ"
     
     $response = [
         "status" => true,
-        "message" => "Задание успешно изменено!"
+        "message" => "Изменения вступили в силу!"
     ];
     echo json_encode($response);
     die();
@@ -285,13 +285,53 @@ if($special_edit_task) { //отдаю значения "Работ"
     
     $response = [
         "status" => true,
-        "message" => "Задание успешно изменено!"
+        "message" => "Изменения вступили в силу!"
     ];
     echo json_encode($response);
+    die();
 
 }
 
+//Сбор средств - добавление и уменьшения суммы
+$donate_summ = $_POST['donate_summ'];
+$donate_plus = $_POST['donate_plus'];
+$donate_minus = $_POST['donate_minus'];
 
+if($donate_plus){
+
+    mysqli_query($mysql, "UPDATE `material_task` SET `donate` = `donate`+'$donate_summ' WHERE `material_task`.`id_task` = '$id_task'");
+    $response = [
+        "status" => true,
+        "message" => "Вы успешно добавили сумму!"
+    ];
+    echo json_encode($response);
+    die();
+    
+}
+
+if($donate_minus){
+    $check_summ = mysqli_query($mysql, "SELECT * FROM `material_task` WHERE `id_task` = '$id_task'");
+    $donate= mysqli_fetch_assoc($check_summ);
+
+    if( $donate['donate'] - $donate_summ > 0){
+        mysqli_query($mysql, "UPDATE `material_task` SET `donate` = `donate`-'$donate_summ' WHERE `material_task`.`id_task` = '$id_task'");
+        $response = [
+            "status" => true,
+            "message" => "Вы успешно изменили сумму!"
+        ];
+        echo json_encode($response);
+        die(); 
+    } else {
+        $response = [
+            "status" => false,
+            "message" => "Ошибка при измении. Введите корректную сумму!"
+        ];
+        echo json_encode($response);
+    }
+
+   
+    
+}
 
 
 

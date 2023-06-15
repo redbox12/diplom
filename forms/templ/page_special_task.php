@@ -31,11 +31,11 @@ if ($info_task['clothes'] == 1) {
     $info_task['clothes'] = "Рабочая";
 }
 if ($_SESSION['user']['admin'] == 1) {
-
+    $j=0;
     $button = '
         <div class="delete">    
-            <input type="hidden" id="id_task' . $j . '" name="id_task" value="' . $id_task . '">
-            <input type="hidden" id="id_type' . $j . '"name="id_type" value="' . $id_type . '">
+            <input type="hidden" id="id_task'.$j.'" name="id_task" value="' . $id_task . '">
+            <input type="hidden" id="id_type'.$j.'"name="id_type" value="' . $type_task . '">
             <button class="btn btn-danger  finished-task">Завершить</button>
         </div>';
         

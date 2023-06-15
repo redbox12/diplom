@@ -27,7 +27,7 @@ if($_SESSION['user']['admin'] == 1){
                 <div class="col-lg-10 col-sm-12">
                     <span class="small text-muted ">Дата сбора:&nbsp'.$date_start.' - '.$date_end.'  </span>
                     <br><span class="text-muted small pt-2">Необходимая сумма:&nbsp'.$summ_deneg.' руб.</span>
-                    <br><span class="text-muted small pt-2">Собраная сумма:&nbsp'.$donate.' руб.</span>
+                    <br><span class="text-muted small pt-2">Собранная сумма:&nbsp'.$donate.' руб.</span>
                 </div>
             </div>
 

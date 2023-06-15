@@ -1,12 +1,26 @@
 <?php 
 if($_SESSION['user']['admin'] == 1){
-
+    $j=0;
     $button = '
     <div class="delete">    
         <input type="hidden" id="id_task'.$j.'" name="id_task" value="'.$id_task.'">
-        <input type="hidden" id="id_type'.$j.'"name="id_type" value="'.$id_type.'">
-        <button class="btn btn-danger btn-sm  finished-task">Завершить</button>
+        <input type="hidden" id="id_type'.$j.'"name="id_type" value="'.$type_task.'">
+        <button class="btn btn-danger btn-sm finished-task">Завершить</button>
     </div>';
+
+    $donate_admin = ' <div class="row ">
+    <div class="col-lg-11">
+        <label><strong>Пополнение баланса:</strong></label>
+        <div class="input-group donate col-sm-7" style="border-radius: 10px;">
+        <input type="hidden" id="id_task'.$j.'" name="id_task" value="'.$id_task.'">
+        <input type="hidden" id="id_type'.$j.'" name="id_type" value="'.$id_type.'">
+        <input type="text" name="donate_summ" class="form-control onlyNumbers" placeholder="200р."  style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;" aria-label="Донат">
+        <button class="btn btn-success plus_donate" type="button"><i class="bx bx-plus" ></i></button>
+        <button class="btn btn-danger minus_donate" type="button"><i class="bx bx-minus"></i></button>
+    </div>
+
+    </div>
+</div>';
     
 } else {
     $button = '';
@@ -97,7 +111,7 @@ echo '
     <div class="card mb-lg-2">
         <div class="card-body">
             
-            <dl class="row mt-4 pb-2">
+            <dl class="row mt-4 pb-1">
                 <dt class="col-lg-8 col-sm-3">Необходимая сумма:&nbsp</dt>
                 <dd class="col-lg-4 col-sm-9">'.$info_task['summ_deneg'].'р. </dd>
 
@@ -112,6 +126,17 @@ echo '
             </div>
 
             </dl>
+
+           '.$donate_admin.'
+
+            <div class="row">
+                <div class="col-12 mt-2">
+                <div class="msg none alert alert-primary alert-dismissible fade show mt-2 "
+                    role="alert">
+                    A simple warning alert—check it out!
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

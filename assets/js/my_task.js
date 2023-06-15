@@ -176,7 +176,8 @@ $(document).on( "click", ".delete  .finished-task", function(e) {
                     //<button type="button" class="btn btn-secondary">Secondary</button>
                    
                     $('.close-setting').click(function(){
-                        location.reload();
+                        // location.reload();
+                        document.location.href='/diplom/my_task_admin.php';
                     });
                     
                 } else{ //ошибки
@@ -540,5 +541,84 @@ $(document).on( "click", ".delete  .edit_task", function(e) {
     
   });
 
+
+/*
+
+Пополнение пожертвований
+
+*/
+$(document).on( "click", ".donate .plus_donate", function(e) {
+    e.preventDefault();
+    let id_task = $(`input[name="id_task"]`).val();
+    let donate_summ = $(`input[name="donate_summ"]`).val();
+
+    console.log("------");
+    console.log(id_task);
+    console.log(donate_summ);
+
+    $.ajax({
+        url: 'forms/edit_and_delete_task_admin.php',
+        type: "POST",
+        dataType: 'json',
+        data: {
+            id_task: id_task,
+            donate_summ: donate_summ,
+            donate_plus: true
+        },
+        success: function(data) {
+            if(data.status){
+                $('.msg').removeClass('none').text(data.message); 
+                setTimeout("location.reload();", 900);
+
+            } else {
+                $('.msg').removeClass('none').text(data.message); 
+                setTimeout("location.reload();", 900);
+
+            }
+
+        }
+
+    });
+
+
+
+
+});
+
+$(document).on( "click", ".donate .minus_donate", function(e) {
+    e.preventDefault();
+    let id_task = $(`input[name="id_task"]`).val();
+    let donate_summ = $(`input[name="donate_summ"]`).val();
+
+    console.log("------");
+    console.log(id_task);
+    console.log(donate_summ);
+
+    $.ajax({
+        url: 'forms/edit_and_delete_task_admin.php',
+        type: "POST",
+        dataType: 'json',
+        data: {
+            id_task: id_task,
+            donate_summ: donate_summ,
+            donate_minus: true
+        },
+        success: function(data) {
+            if(data.status){
+                $('.msg').removeClass('none').text(data.message); 
+                setTimeout("location.reload();", 900);
+
+            } else {
+                $('.msg').removeClass('none').text(data.message); 
+                setTimeout("$('.msg').addClass('none')", 3000);
+
+            }
+
+        }
+
+    });
+
+
+});
 
 

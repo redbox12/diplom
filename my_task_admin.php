@@ -55,7 +55,7 @@ ob_start();
     <main id="main" class="main">
         <div class="container ">
             <div class="row my-2">
-                <h1> Мои задачи </h1>
+                <h1> Созданные задачи </h1>
             </div>
 
 
@@ -70,7 +70,7 @@ ob_start();
                         <form>
                             <div class="row mt-2">
                                 <div class="col-lg-3 col-sm-4 mb-2">
-                                    <label>Тип задания: </label>
+                                    <label>Тип задачи: </label>
                                     <select class="form-select type-task" aria-label="Пример выбора по умолчанию">
                                         <option value="0">Все</option>
                                         <option value="1">Работы</option>
@@ -97,7 +97,7 @@ ob_start();
 
                 </div>
             </div>
-
+            <!-- модальное окно при завершении задачи -->
             <div class="modal fade" id="modal-delete-task" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
