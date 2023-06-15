@@ -49,7 +49,7 @@ ob_start();
 
             <div class="row">
                 <div class="d-flex justify-content-lg-start justify-content-center ms-lg-3 ">
-                    <h3><strong>Помошники</strong> </h3>
+                    <h3><strong>Помощники</strong> </h3>
                 </div>
             </div>
 

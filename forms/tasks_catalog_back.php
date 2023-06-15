@@ -34,7 +34,7 @@
                         if($change_task2 == 1){ //если произошли изменение в задание
                         $change_task = ' <i  id = "info-change'.$j.'" style="font-size: 25px; color:red;"
                         class="btn-tooltip bi bi-exclamation-circle-fill btn p-0" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-title="Изменена информация по заданию!"></i>';
+                        data-bs-placement="top" data-bs-title="Изменена информация по задаче!"></i>';
                     } else{
                         $change_task = '';
                     }
@@ -104,7 +104,7 @@
                     //if($change_task2 === 1){ //если произошли изменение в задание
                         $change_task = ' <i id="btn-tooltip" style="font-size: 25px; color:red;"
                         class="bi bi-exclamation-circle-fill btn p-0" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-title="Изменена информация по заданию!"></i>';
+                        data-bs-placement="top" data-bs-title="Изменена информация по задаче!"></i>';
                     } else{
                         $change_task = '';
                     }

@@ -206,7 +206,7 @@ $date_task = $_POST['date_task'];
         } else{
             $response = [
                 "status" => false,
-                "message" => 'Задание пока не создано! Перейдите в раздел Мои задания',
+                "message" => 'Задачи пока не созданы! Перейдите в раздел Созданные задачи',
                 "type" => 0.1
             ];
 
@@ -239,7 +239,7 @@ $date_task = $_POST['date_task'];
 
             $response = [
                 "status" => true,
-                "message" => "Вывод всех заданий",
+                "message" => "Вывод всех задач",
                 "type" => 0, 
                 "task" => $all_task
             ];
@@ -289,7 +289,7 @@ $date_task = $_POST['date_task'];
 
             $response = [
                 "status" => true,
-                "message" => "Вывод всех заданий",
+                "message" => "Вывод всех задач",
                 "type" => 0, //тип вывода всех задач без даты
                 "task" => $all_task
             ];
@@ -300,7 +300,7 @@ $date_task = $_POST['date_task'];
         } else { //когда нет заданий 
             $response = [
                 "status" => false,
-                "message" => 'Задание пока не создано! Перейдите в раздел "Мои задания"',
+                "message" => 'Задачи пока не созданы! Перейдите в раздел "Созданные задачи"',
                 "type" => 0.1
             ];
 
@@ -387,7 +387,7 @@ if($type_task == 3 and $date_task == ""){
 
             $response = [
                 "status" => true,
-                "message" => "Вывод всех заданий",
+                "message" => "Вывод всех задач",
                 "type" => 0, 
                 "task" => $all_task
             ];
@@ -398,7 +398,7 @@ if($type_task == 3 and $date_task == ""){
     } else { //когда нет заданий 
         $response = [
             "status" => false,
-            "message" => 'Задание пока не создано! Перейдите в раздел "Мои задания"',
+            "message" => 'Задачи пока не созданы! Перейдите в раздел "Созданные задачи"',
             "type" => 0.1
         ];
 

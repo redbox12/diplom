@@ -78,7 +78,7 @@ session_start();
             <li class="nav-item">
                 <a class="nav-link collapsed" href="my_task_admin.php">
                     <i class="bi bi-clipboard"></i>
-                    <span>Мои задачи</span>
+                    <span>Созданные задачи</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -115,6 +115,13 @@ session_start();
             
         }  
         
+
+        // <li class="nav-item">
+        //     <a class="nav-link collapsed" href="my_game.php">
+        //         <i class="bi bi-clipboard"></i>
+        //         <span>Мои задачи</span>
+        //     </a>
+        // </li>
         else if($_SESSION['user']['admin'] == 0 && isset($_SESSION['user'])){
             echo '<li class="nav-item">
             <a class="nav-link collapsed" href="tasks_catalog.php">
@@ -123,12 +130,7 @@ session_start();
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="my_game.php">
-                <i class="bi bi-clipboard"></i>
-                <span>Мои задачи</span>
-            </a>
-        </li>
+        
        
         <li class="nav-item">
             <a class="nav-link collapsed" href="users-profile.php">

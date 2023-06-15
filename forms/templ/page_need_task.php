@@ -10,6 +10,8 @@
    
  
  $info_task = [
+    "id_task" => $row['id_task'], 
+    "id_type" => $row['id_type'], 
      "name" => $row['name'], 
      "date" =>  date("d.m", strtotime($row['date'])),
      "time" => $row['time'],
@@ -32,6 +34,7 @@
 
 if($_SESSION['user']['admin'] == 1){ //вывод организатора
     $j = 0; //для навешивания события
+    $table_people_otkl='';
     echo '
     <div class="row ">
     <h1 class=""> <strong>'.$info_task['name'].' </strong></h1>
@@ -100,7 +103,12 @@ if($_SESSION['user']['admin'] == 1){ //вывод организатора
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-danger  finished-task"> Завершить</button>
+                
+                <input type="hidden" id="id_task'.$j.'" name="id_task" value="'. $info_task['id_task'].'">
+                <input type="hidden" id="id_type'.$j.'" name="id_type" value="'.$info_task['id_type'].'">
+                <button class="btn btn-danger finished-task"> Завершить </button>
+               
+                
             </div>
         </div>
     </div>
