@@ -33,13 +33,13 @@ ob_start();
 
                             <dl class="row pt-3 ">
                                 <dt class="col-lg-4 col-sm-3">Название:</dt>
-                                <dd class="col-lg-8 col-sm-9">Храм Георгия победоносца </dd>
+                                <dd class="col-lg-8 col-sm-9">Храм Георгия Победоносца </dd>
 
                                 <dt class="col-lg-4 col-sm-3">Андрес:</dt>
-                                <dd class="col-lg-8 col-sm-9"> г. Химки, ул.Лесная д.10</dd>
+                                <dd class="col-lg-8 col-sm-9"> г. Химки, ул.Лесная д.1</dd>
 
                                 <dt class="col-lg-4 col-sm-3">Настоятель:</dt>
-                                <dd class="col-lg-8 col-sm-9"> иерей Виктор Влашко</dd>
+                                <dd class="col-lg-8 col-sm-9"> иерей Кирилл Сушков</dd>
                             </dl>
 
                         </div>

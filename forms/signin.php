@@ -35,7 +35,7 @@ $check_user_ban = mysqli_query($mysql, "SELECT * FROM `personal_date` WHERE `tel
 if(mysqli_num_rows($check_user_ban)>0){
     $response = [
         "status" => false,
-        "message" => '🔴 Вы заблокированы из-за подозрительного поведения',
+        "message" => '🔴 Вы заблокированы огрганизатором',
     ];
     echo json_encode($response);
     die();

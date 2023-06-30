@@ -80,24 +80,62 @@ if($_SESSION['user']['admin'] == 1){
                 </div>
             </div>
 
+            <!-- модальное окно с изменением -->
+
+            <div class="modal fade" id="modal-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Внимание!
+                            </h1>
+                            <!-- <button type="button" class="btn-close close-setting" data-bs-dismiss="modal"
+                                aria-label="Закрыть"></button> -->
+                        </div>
+                        <div class="modal-body setting-body-modal">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <div class="alert alert-danger" role="alert">
+                                        Обратите внимание на параметры задачи, были внесены изменения!
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button type="button" id="edit_ok" class="btn btn-primary px-5"
+                                        data-bs-dismiss="modal">Ок</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
 
 
             <div class="row mt-4" id="my-task">
-                <h4 class="ms-md-4"> </h4>
+                <h4 class="ms-md-4">
+                   
+                </h4>
             </div>
 
 
 
             <div class="row mt-4" id="task-card">
-                <h4 class="ms-md-4">Cвободные задачи</h4>
+                <h4 class="ms-md-4">
+                    CВОБОДНЫЕ ЗАДАЧИ
+                </h4>
                 <!-- Вывод заданий -->
 
             </div>
-
-
-
-
-
         </div>
 
     </main>

@@ -113,7 +113,7 @@ $('.need-task').click(function(e){
 
                 }
                 $('.msg').removeClass('none').text(data.message); //
-            }
+            }   
         }
 
 

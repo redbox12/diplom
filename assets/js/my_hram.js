@@ -12,9 +12,9 @@ $(document).ready(function() { // Загрузка всех заданий
         url: 'forms/my_hram_back.php',
         type: 'POST',
         dataType: 'json',
-        data: {
-            all_people: 0,
-        },
+            data: {
+                all_people: 0,
+            },
         success: function(data) {
             if (data.status){  
             console.log(data);
