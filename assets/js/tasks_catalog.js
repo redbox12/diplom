@@ -16,7 +16,7 @@ $(document).ready(function() { // Загрузка всех заданий
                     console.log(data);
                     data.task.forEach(function(task){   
                         $('#task-card').append('<div class="col-lg-5 col-md-12 mb-1 ms-lg-3 mt-2 task_card">'+ task + '</div>');
-                });
+                }); 
 
                 }
              
@@ -55,7 +55,7 @@ function my_task() {
                  //вывод всех задач без даты
                     console.log(data);
                     data.task.forEach(function(task){   
-                        $('#my-task h4').text('Мои задачи');
+                        $('#my-task h4').text('МОИ ЗАДАЧИ');
                         $('#my-task').append('<div class="col-lg-5 col-md-12 mb-1 ms-lg-3 mt-2 task_card">'+ task + '</div>');
                         $('.limite_number').text(data.limite_task);
                 });
@@ -94,20 +94,57 @@ function my_task() {
 
 
 
-$(document).on( "click", ".info  i", function(e) {
+
+//модальное окно, информирующее об изименении задачи
+$(document).on( "click", ".my-task-res  i", function(e) {
     e.preventDefault();
-    $('.btn-tooltip').tooltip();
+    //$('.btn-tooltip').tooltip();
     let i = $('.info i').index(this);
+    let id_task = $(`input[id="id_task_i${i}"]`).val();
+    let id_type = $(`input[id="id_type_i${i}"]`).val();
+    let id_human = $(`input[id="id_human_i${i}"]`).val();
+    let edit_info = true;
+
+    console.log('--------');
     console.log(i);
-    $(`#info-change${i}`).tooltip('show');
-    setInterval(function(){ //время 4.5 сек. до исчезновения подсказки
-        $(`#info-change${i}`).tooltip('hide');
-    }, 4500);
+    console.log(id_task);
+    console.log(id_type);
+    console.log(id_human);
+    // 
+    console.log('--------');
+    //$(`#info-change${i}`).tooltip('show');
+    $('#modal-info').modal("toggle");
+
+    $.ajax({
+        url: 'forms/edit_and_delete_task_admin.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id_task: id_task,
+            edit_info: edit_info,
+            id_type: id_type,
+            id_human: id_human
+        },
+        success: function(data) {
+            if (data.status){  
+                //$('.info').remove()
+                setTimeout("location.reload();", 2000);
+                //$('.info').removeClass();
+                console.log("Все ништяк");
+            } else{ //ошибки
+                console.log("Не пашит!");
+            }
+            
+        }
+    });
+    
+
+
 });
 
-  $('#my-task').on( "mouseover", ".task_card", function() {
-    $('.btn-tooltip').tooltip();
-  });
+//   $('#my-task').on( "mouseover", ".task_card", function() {
+//     $('.btn-tooltip').tooltip();
+//   });
 
 
 

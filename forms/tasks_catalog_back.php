@@ -12,11 +12,13 @@
         $my_task = mysqli_query($mysql, "SELECT * FROM `players` WHERE `id_human`='$id_human' ");
         $all_task = array();
         $j = 0;
+        $i = 0; //обработчик для информирвоания
     
             while ($row = $my_task->fetch_assoc()) // получаем все строки в цикле по одной
             {
                 $id_task =  $row['id_task'];
                 $id_type =  $row['id_type'];
+                $change_task = $row['edit'];
                
                 $need_task = mysqli_query($mysql, "SELECT * FROM `need_tasks` WHERE `id_task`='$id_task'");
                 $row2 = $need_task->fetch_assoc();
@@ -28,13 +30,18 @@
                     $time_length = $row2['time_length']; //продолжительность
                     $people_amout = $row2['people_amout']; //кол-во людей
                     $people_feedback = $row2['people_feedback']; //кол-во откликнувших. людей
-                    $change_task2 = $row2['edit'];
+                    
                     
                     //if($row2['change_task'] == 1){
-                        if($change_task2 == 1){ //если произошли изменение в задание
-                        $change_task = ' <i  id = "info-change'.$j.'" style="font-size: 25px; color:red;"
+                        if($change_task == 1){ //если произошли изменение в задание
+                        $change_task = '
+                        <input type="hidden" id="id_task_i'.$i.'" name="id_task" value="'.$id_task.'">
+                        <input type="hidden" id="id_type_i'.$i.'" name="id_type" value="'.$id_type.'">
+                        <input type="hidden" id="id_human_i'.$i.'" name="id_human" value="'.$_SESSION['user']['id'].'">
+                        <i  id = "info-change'.$i.'" style="font-size: 25px; color:red;"
                         class="btn-tooltip bi bi-exclamation-circle-fill btn p-0" data-bs-toggle="tooltip"
                         data-bs-placement="top" data-bs-title="Изменена информация по задаче!"></i>';
+                        $i++;
                     } else{
                         $change_task = '';
                     }

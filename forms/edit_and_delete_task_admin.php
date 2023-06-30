@@ -4,6 +4,8 @@ require_once 'conect.php';
 
 $id_task = $_POST['id_task'];
 $type_task = $_POST['id_type'];
+$edit_info = $_POST['edit_info']; //красная кнопка ихменения
+$id_human = $_POST['id_human']; 
 
 
 $get_need_task = $_POST['get_need_task'];
@@ -13,6 +15,17 @@ $get_special_task = $_POST['get_special_task'];
 $need_edit_task = $_POST['need_edit_task'];  //переменная для изменения данных
 $mtrl_edit_task = $_POST['mtrl_edit_task']; 
 $special_edit_task = $_POST['special_edit_task'];
+
+if($edit_info){  //красная кнопка ихменения
+    $edit = 0;
+    mysqli_query($mysql, "UPDATE `players` SET `edit` = '$edit' WHERE `players`.`id_task`='$id_task' AND `players`.`id_type`= '$type_task' AND `players`.`id_human`= '$id_human'"); 
+
+    $response = [
+        "status" => true,
+     ];
+    echo json_encode($response);
+    die();
+}
 
 if($get_need_task) { //отдаю значения "Работ"
     
@@ -39,7 +52,7 @@ if($get_need_task) { //отдаю значения "Работ"
       
 }
 
-if($need_edit_task) { //отдаю значения "Работ" 
+if($need_edit_task) { //редактирую  зажачу "Работ" 
 
     $name = $_POST['name'];
     $date = $_POST['date'];
@@ -50,6 +63,7 @@ if($need_edit_task) { //отдаю значения "Работ"
     $description = $_POST['description'];
     //$admin = $_SESSION['user']['admin']; 
     $edit = 1;
+    $id_type=1;
 
     $error_fields = [];
 
@@ -96,7 +110,10 @@ if($need_edit_task) { //отдаю значения "Работ"
 
     
 
-    mysqli_query($mysql, "UPDATE `need_tasks` SET `name` = '$name', `date` = '$date', `time` = '$time',`time_length` = '$time_length', `clothes` = '$clothes', `people_amout` = '$amout_people', `description` = '$description', `edit` = '$edit' WHERE `need_tasks`.`id_task` = '$id_task'");
+    mysqli_query($mysql, "UPDATE `need_tasks` SET `name` = '$name', `date` = '$date', `time` = '$time',`time_length` = '$time_length', `clothes` = '$clothes', `people_amout` = '$amout_people', `description` = '$description' WHERE `need_tasks`.`id_task` = '$id_task'");
+    
+    mysqli_query($mysql, "UPDATE `players` SET `edit` = '$edit' WHERE `players`.`id_task`='$id_task' AND `players`.`id_type`= '$id_type'");
+
     
     
     //$mysql->close();
@@ -278,7 +295,9 @@ if($special_edit_task) { //отдаю значения "Работ"
 
     
 
-    mysqli_query($mysql, "UPDATE `special_tasks` SET `name` = '$name', `date` = '$date', `time` = '$time',`time_length` = '$time_length', `clothes` = '$clothes', `people_amout` = '$amout_people', `description` = '$description', `edit` = '$edit' WHERE `special_tasks`.`id_task` = '$id_task'");
+    mysqli_query($mysql, "UPDATE `special_tasks` SET `name` = '$name', `date` = '$date', `time` = '$time',`time_length` = '$time_length', `clothes` = '$clothes', `people_amout` = '$amout_people', `description` = '$description' WHERE `special_tasks`.`id_task` = '$id_task'");
+
+    mysqli_query($mysql, "UPDATE `players` SET `edit` = '$edit' WHERE `id_task`='$id_task' AND `id_type`='3'");
     
     
     //$mysql->close();
